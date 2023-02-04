@@ -82,4 +82,5 @@ class TestDrug {
         assertFalse(d.checkIfSameDrug(e));
         assertTrue(d.checkIfSameDrug(f));
     }
+
 }
