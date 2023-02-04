@@ -16,7 +16,7 @@ public class Drug {
     private int frequency;
 
     // CONSTRUCTOR, CREATES A NEW DRUG GIVEN NAME, DOSE, MEASURING-UNIT(mg, mcg, g), DOSE UNIT, FREQUENCY
-    public Drug (String name, double dose, String unit, String period, int frequency) {
+    public Drug(String name, double dose, String unit, String period, int frequency) {
         this.name = name;
         this.dose = dose;
         this.unit = unit;
@@ -34,29 +34,29 @@ public class Drug {
     // REQUIRES: String must be a valid time period (eg. day, 2 days, week, month)
     // MODIFIES: THIS
     // EFFECTS: updates the period of the drug
-    public void updatePeriod(String newPeriod){
+    public void updatePeriod(String newPeriod) {
         this.period = newPeriod;
     }
 
     // REQUIRE: newFrequency > 0
     // MODIFIES: THIS
     // EFFECTS: updates the frequency of the drug
-    public void updateFrequency(int newFrequency){
+    public void updateFrequency(int newFrequency) {
         this.frequency = newFrequency;
     }
 
     // EFFECTS: if this and d has the same name, they are the same drug so return true, otherwise return false
-    public boolean checkIfSameDrug(Drug d){
+    public boolean checkIfSameDrug(Drug d) {
 
         return this.name.equalsIgnoreCase(d.getName());
     }
 
-    public String getName(){
+    public String getName() {
 
         return this.name;
     }
 
-    public double getDose(){
+    public double getDose() {
 
         return this.dose;
     }
@@ -67,22 +67,27 @@ public class Drug {
         return this.unit;
     }
 
-    public String getPeriod(){
+    public String getPeriod() {
 
         return this.period;
     }
 
-    public int getFrequency(){
+    public int getFrequency() {
 
         return this.frequency;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Drug)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Drug)) {
+            return false;
+        }
         Drug drug = (Drug) o;
-        return getFrequency() == drug.getFrequency() && getName().equals(drug.getName()) && getDose()==(drug.getDose()) && getUnit().equals(drug.getUnit()) && getPeriod().equals(drug.getPeriod());
+        return getFrequency() == drug.getFrequency() && getName().equals(drug.getName()) && getDose()
+                == (drug.getDose()) && getUnit().equals(drug.getUnit()) && getPeriod().equals(drug.getPeriod());
     }
 
     @Override

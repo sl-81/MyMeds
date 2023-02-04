@@ -21,7 +21,7 @@ public class Patient {
     // day must be =<31 for months = 1,3,5,7,8,10,12, =<3- for months = 4,6,9,11,
     // =<28 for months=2 and not leap year, =<29 for months=2 and leap year
     // EFFECTS: CREATES A NEW PATIENT
-    public Patient (String name, int year, int month, int day) {
+    public Patient(String name, int year, int month, int day) {
         this.name = name;
         this.birthday = LocalDate.of(year, month, day);
         this.age = LocalDate.now().getYear() - year;
@@ -30,7 +30,7 @@ public class Patient {
     }
 
     // EFFECTS: returns a list of conditions of the patient
-    public List<Condition> getConditions (){
+    public List<Condition> getConditions() {
 
         return this.conditions;
 
@@ -38,14 +38,14 @@ public class Patient {
 
     // MODIFIES: THIS
     // EFFECTS: adds a condition to conditions, if a condition is already there, do nothing
-    public void addCondition (Condition c) {
+    public void addCondition(Condition c) {
         boolean contains = false;
-        for(Condition condition: conditions){
-            if(condition.getName().equalsIgnoreCase(c.getName())){
+        for (Condition condition: conditions) {
+            if (condition.getName().equalsIgnoreCase(c.getName())) {
                 contains = true;
             }
         }
-        if(!contains){
+        if (!contains) {
             conditions.add(c);
         }
     }
@@ -53,9 +53,9 @@ public class Patient {
 
     // MODIFIES: THIS
     // EFFECTS: remove a condition from conditions, if a condition is not there, do nothing
-    public void removeCondition (Condition c) {
+    public void removeCondition(Condition c) {
         Condition sameNameAsC = null;
-        for (Condition condition: conditions){
+        for (Condition condition: conditions) {
             if (condition.getName().equalsIgnoreCase(c.getName())) {
                 sameNameAsC = condition;
             }
@@ -72,9 +72,9 @@ public class Patient {
 
     // MODIFIES: THIS
     // EFFECTS: add a drug to drugs, if the exact same drug (by name) is in there, do nothing
-    public void addDrug (Drug d) {
+    public void addDrug(Drug d) {
         boolean contains = false;
-        for (Drug drug: drugs){
+        for (Drug drug: drugs) {
             if (drug.getName().equalsIgnoreCase(d.getName())) {
                 contains = true;
             }
@@ -86,7 +86,7 @@ public class Patient {
 
     // MODIFIES: THIS
     // EFFECTS: remove a drug from drugs, if a drug is not in there, do nothing
-    public void removeDrug (Drug d) {
+    public void removeDrug(Drug d) {
         Drug sameNameAsD = null;
         for (Drug drug: drugs) {
             if (drug.getName().equalsIgnoreCase(d.getName())) {
@@ -125,27 +125,27 @@ public class Patient {
     // REQUIRES: d must be in drugs
     // MODIFIES: THIS, d
     // EFFECTS: update the frequency of an existing drug in the list
-    public void updateFrequency (Drug d, int newFreq) {
-        for(Drug drug: drugs) {
-            if (drug.getName().equalsIgnoreCase(d.getName())){
+    public void updateFrequency(Drug d, int newFreq) {
+        for (Drug drug: drugs) {
+            if (drug.getName().equalsIgnoreCase(d.getName())) {
                 drug.updateFrequency(newFreq);
             }
         }
 
     }
 
-    public LocalDate getBirthday(){
+    public LocalDate getBirthday() {
 
         return birthday;
 
     }
 
 
-    public String getName () {
+    public String getName() {
         return name;
     }
 
-    public int getAge(){
+    public int getAge() {
         return age;
     }
 }
