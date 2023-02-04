@@ -74,7 +74,6 @@ public class Drug {
     }
 
     public int getFrequency() {
-
         return this.frequency;
     }
 

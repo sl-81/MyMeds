@@ -9,12 +9,14 @@ class TestDrug {
     private Drug d;
     private Drug e;
     private Drug f;
+    private Drug g;
 
     @BeforeEach
     public void setUp() {
         d = new Drug ("Test", 99, "mg", "day", 1);
         e = new Drug ("Test2", 1, "kg", "week", 3);
         f = new Drug ("Test", 50, "mg", "day", 2);
+        g = new Drug ("Test", 99, "mg", "day", 1);
     }
 
     @Test
@@ -81,6 +83,12 @@ class TestDrug {
     public void testCheckIfSameDrug(){
         assertFalse(d.checkIfSameDrug(e));
         assertTrue(d.checkIfSameDrug(f));
+    }
+
+    @Test
+    public void testDrugEquals() {
+        assertTrue(d.equals(g));
+        assertFalse(d.equals(f));
     }
 
 }
