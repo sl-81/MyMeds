@@ -90,9 +90,4 @@ public class Drug {
         return getFrequency() == drug.getFrequency() && getName().equals(drug.getName()) && getDose()
                 == (drug.getDose()) && getUnit().equals(drug.getUnit()) && getPeriod().equals(drug.getPeriod());
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getName(), getDose(), getUnit(), getPeriod(), getFrequency());
-    }
 }
