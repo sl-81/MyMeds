@@ -27,6 +27,7 @@ public class Drug {
     // MODIFIES: THIS
     // EFFECTS: updates the dose of the drug
     public void updateDose(double newDose) {
+
         this.dose = newDose;
     }
 
