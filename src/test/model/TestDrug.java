@@ -77,6 +77,7 @@ class TestDrug {
     }
 
     // EFFECTS: return true d is the same drug as THIS, false otherwise
+    @Test
     public void testCheckIfSameDrug(){
         assertFalse(d.checkIfSameDrug(e));
         assertTrue(d.checkIfSameDrug(f));
