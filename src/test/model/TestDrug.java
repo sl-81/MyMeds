@@ -9,16 +9,12 @@ class TestDrug {
     private Drug d;
     private Drug e;
     private Drug f;
-    private Drug g;
-    private Drug h;
 
     @BeforeEach
     public void setUp() {
         d = new Drug ("Test", 99, "mg", "day", 1);
         e = new Drug ("Test2", 1, "kg", "week", 3);
         f = new Drug ("Test", 50, "mg", "day", 1);
-        g = new Drug ("Test", 99, "mg", "day", 1);
-        h = new Drug ("Test", 50, "mcg", "day", 1);
     }
 
     @Test
@@ -89,10 +85,12 @@ class TestDrug {
 
     @Test
     public void testDrugEquals() {
-        assertFalse(g.equals(new Patient("testDrug",1999,11,11)));
-        assertTrue(d.equals(g));
+        assertFalse(e.equals(new Patient("testDrug",1999,11,11)));
+        assertTrue(d.equals(new Drug ("Test", 99, "mg", "day", 1)));
         assertFalse(d.equals(f));
         assertFalse(d.equals(e));
+        assertFalse(d.equals(new Drug ("Test", 99, "mcg", "day", 1)));
+        assertFalse(d.equals((new Drug ("Test", 99, "mcg", "week", 1))));
     }
 
 }
