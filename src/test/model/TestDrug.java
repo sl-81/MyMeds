@@ -85,12 +85,20 @@ class TestDrug {
 
     @Test
     public void testDrugEquals() {
+        //comparing drug with other non-drug object should produce false
         assertFalse(e.equals(new Patient("testDrug",1999,11,11)));
+        // comparing this with another drug object with same field values should produce true
         assertTrue(d.equals(new Drug ("Test", 99, "mg", "day", 1)));
+        // comparing this with drug object that is otherwise same but different dose should produce false
         assertFalse(d.equals(f));
-        assertFalse(d.equals(e));
+        // comparing this with drug object that is otherwise same but different unit would produce false
         assertFalse(d.equals(new Drug ("Test", 99, "mcg", "day", 1)));
+        // comparing this with drug that is otherwise same but different time period would produce false
         assertFalse(d.equals((new Drug ("Test", 99, "mcg", "week", 1))));
+        // comparing this with drug that is otherwise same but different frequency would produce false
+        assertFalse(d.equals((new Drug ("Test", 99, "mcg", "week", 3))));
+        // comparing this with drug that is otherwise same but different name would produce false
+        assertFalse(d.equals(new Drug ("diffTest", 99, "mg", "day", 1)));
     }
 
 }
