@@ -87,8 +87,10 @@ class TestDrug {
 
     @Test
     public void testDrugEquals() {
+        assertFalse(g.equals(new Patient("testDrug",1999,11,11)));
         assertTrue(d.equals(g));
         assertFalse(d.equals(f));
+        assertFalse(d.equals(e));
     }
 
 }
