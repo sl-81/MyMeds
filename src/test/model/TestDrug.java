@@ -10,13 +10,15 @@ class TestDrug {
     private Drug e;
     private Drug f;
     private Drug g;
+    private Drug h;
 
     @BeforeEach
     public void setUp() {
         d = new Drug ("Test", 99, "mg", "day", 1);
         e = new Drug ("Test2", 1, "kg", "week", 3);
-        f = new Drug ("Test", 50, "mg", "day", 2);
+        f = new Drug ("Test", 50, "mg", "day", 1);
         g = new Drug ("Test", 99, "mg", "day", 1);
+        h = new Drug ("Test", 50, "mcg", "day", 1);
     }
 
     @Test
