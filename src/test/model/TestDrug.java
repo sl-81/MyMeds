@@ -94,9 +94,9 @@ class TestDrug {
         // comparing this with drug object that is otherwise same but different unit would produce false
         assertFalse(d.equals(new Drug ("Test", 99, "mcg", "day", 1)));
         // comparing this with drug that is otherwise same but different time period would produce false
-        assertFalse(d.equals((new Drug ("Test", 99, "mcg", "week", 1))));
+        assertFalse(d.equals((new Drug ("Test", 99, "mg", "week", 1))));
         // comparing this with drug that is otherwise same but different frequency would produce false
-        assertFalse(d.equals((new Drug ("Test", 99, "mcg", "week", 3))));
+        assertFalse(d.equals((new Drug ("Test", 99, "mg", "day", 3))));
         // comparing this with drug that is otherwise same but different name would produce false
         assertFalse(d.equals(new Drug ("diffTest", 99, "mg", "day", 1)));
     }
