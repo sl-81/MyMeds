@@ -66,10 +66,15 @@ public class Drug {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Drug)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Drug)) {
+            return false;
+        }
         Drug drug = (Drug) o;
-        return getName().equals(drug.getName()) && getDose().equals(drug.getDose()) && getInstructions().equals(drug.getInstructions()) && getIndication().equals(drug.getIndication());
+        return getName().equals(drug.getName()) && getDose().equals(drug.getDose())
+                && getInstructions().equals(drug.getInstructions()) && getIndication().equals(drug.getIndication());
     }
 
 }
