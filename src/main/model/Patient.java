@@ -13,7 +13,6 @@ public class Patient {
     private String name;
     private LocalDate birthday;
     private int age;
-    private List<Condition> conditions;
     private List<Drug> drugs;
 
     // CONSTRUCTOR, CREATES NEW PATIENT WITH NO DRUGS AND CONDITIONS GIVEN NAME AND BIRTHDAY
@@ -25,44 +24,9 @@ public class Patient {
         this.name = name;
         this.birthday = LocalDate.of(year, month, day);
         this.age = LocalDate.now().getYear() - year;
-        this.conditions = new ArrayList<>();
         this.drugs = new ArrayList<>();
     }
 
-    // EFFECTS: returns a list of conditions of the patient
-    public List<Condition> getConditions() {
-
-        return this.conditions;
-
-    }
-
-    // MODIFIES: THIS
-    // EFFECTS: adds a condition to conditions, if a condition is already there, do nothing
-    public void addCondition(Condition c) {
-        boolean contains = false;
-        for (Condition condition: conditions) {
-            if (condition.getName().equalsIgnoreCase(c.getName())) {
-                contains = true;
-            }
-        }
-        if (!contains) {
-            conditions.add(c);
-        }
-    }
-
-
-    // MODIFIES: THIS
-    // EFFECTS: remove a condition from conditions, if a condition is not there, do nothing
-    public void removeCondition(Condition c) {
-        Condition sameNameAsC = null;
-        for (Condition condition: conditions) {
-            if (condition.getName().equalsIgnoreCase(c.getName())) {
-                sameNameAsC = condition;
-            }
-        }
-        conditions.remove(sameNameAsC);
-
-    }
 
     // EFFECTS: return a list of drugs
     public List<Drug> getDrugs() {
@@ -86,10 +50,10 @@ public class Patient {
 
     // MODIFIES: THIS
     // EFFECTS: remove a drug from drugs, if a drug is not in there, do nothing
-    public void removeDrug(Drug d) {
+    public void removeDrug(String drugName) {
         Drug sameNameAsD = null;
         for (Drug drug: drugs) {
-            if (drug.getName().equalsIgnoreCase(d.getName())) {
+            if (drug.getName().equalsIgnoreCase(drugName)) {
                 sameNameAsD = drug;
             }
         }
@@ -100,7 +64,7 @@ public class Patient {
     // REQUIRES: d must be in drugs, newDose >0
     // MODIFIES: THIS, d
     // EFFECTS: update the dose of an existing drug
-    public void updateDose(Drug d, double newDose) {
+    public void updateDose(Drug d, String newDose) {
         Drug correctDrug = null;
         for (Drug drug: drugs) {
             if (drug.getName().equalsIgnoreCase(d.getName())) {
@@ -113,26 +77,16 @@ public class Patient {
     // REQUIRES: d must be in drugs
     // MODIFIES: THIS
     // EFFECTS: update the dose period of an existing drugs
-    public void updatePeriod(Drug d, String newPeriod) {
+    public void updateInstructions(Drug d, String newInstructions) {
         for (Drug drug: drugs) {
             if (drug.getName().equalsIgnoreCase(d.getName())) {
-                drug.updatePeriod(newPeriod);
+                drug.updateInstructions(newInstructions);
             }
         }
 
     }
 
-    // REQUIRES: d must be in drugs
-    // MODIFIES: THIS, d
-    // EFFECTS: update the frequency of an existing drug in the list
-    public void updateFrequency(Drug d, int newFreq) {
-        for (Drug drug: drugs) {
-            if (drug.getName().equalsIgnoreCase(d.getName())) {
-                drug.updateFrequency(newFreq);
-            }
-        }
 
-    }
 
     public LocalDate getBirthday() {
 

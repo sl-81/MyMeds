@@ -11,5 +11,3 @@
 - As a user, I want to be able to stop keeping track of a patient and remove them from the interface
 - As a user, I want to be able to add a drug to a patient's chart by entering the drug's name, dosage, how many tablets/doses and how often to take the drug.
 - As a user, I want to be able to remove a discontinued drug from a patient's profile.
-- As a user, I want to be able to add a condition to a patient's profile
-- As a user, I want to be able to remove a condition from a patient's profile.
