@@ -1,6 +1,5 @@
 package model;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -64,10 +63,10 @@ public class Patient {
     // REQUIRES: d must be in drugs, newDose >0
     // MODIFIES: THIS, d
     // EFFECTS: update the dose of an existing drug
-    public void updateDose(Drug d, String newDose) {
+    public void updateDose(String drugName, String newDose) {
         Drug correctDrug = null;
         for (Drug drug: drugs) {
-            if (drug.getName().equalsIgnoreCase(d.getName())) {
+            if (drug.getName().equalsIgnoreCase(drugName)) {
                 correctDrug = drug;
             }
         }
@@ -77,9 +76,9 @@ public class Patient {
     // REQUIRES: d must be in drugs
     // MODIFIES: THIS
     // EFFECTS: update the dose period of an existing drugs
-    public void updateInstructions(Drug d, String newInstructions) {
+    public void updateInstructions(String drugName, String newInstructions) {
         for (Drug drug: drugs) {
-            if (drug.getName().equalsIgnoreCase(d.getName())) {
+            if (drug.getName().equalsIgnoreCase(drugName)) {
                 drug.updateInstructions(newInstructions);
             }
         }

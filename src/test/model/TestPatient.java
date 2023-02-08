@@ -26,11 +26,13 @@ public class TestPatient {
     public void testConstructor() {
         assertEquals("Test",p.getName());
         assertEquals(LocalDate.of(2000,1,1),p.getBirthday());
+        assertEquals((LocalDate.now().getYear() - 2000), p.getAge());
         assertEquals(new ArrayList<>(), p.getDrugs());
 
         assertEquals("Test2", q.getName());
         assertEquals(LocalDate.of(1999,12,31), q.getBirthday());
         assertEquals(new ArrayList<>(), q.getDrugs());
+        assertEquals((LocalDate.now().getYear() - 1999), q.getAge());
     }
 
 
@@ -101,7 +103,7 @@ public class TestPatient {
     @Test
     public void testUpdateDose () {
         q.addDrug(am);
-        q.updateDose(am, "1000mg");
+        q.updateDose("amoxicillin", "1000mg");
         ArrayList<Drug> testUpdateDrug = new ArrayList<Drug>();
         Drug testDrug = new Drug("amoxicillin","1000mg", "3 times a day", "ear infection");
         testUpdateDrug.add(testDrug);
@@ -113,7 +115,7 @@ public class TestPatient {
     public void testUpdateDoseLongerList () {
         q.addDrug(ce);
         q.addDrug(am);
-        q.updateDose(am, "1000mg");
+        q.updateDose("amoxicillin", "1000mg");
         ArrayList<Drug> testUpdateDrug = new ArrayList<Drug>();
         testUpdateDrug.add(ce);
         testUpdateDrug.add(new Drug("amoxicillin","1000mg", "3 times a day", "ear infection"));
@@ -126,7 +128,7 @@ public class TestPatient {
     @Test
     public void testUpdateInstructions() {
         q.addDrug(am);
-        q.updateInstructions(am, "once every 2 days");
+        q.updateInstructions("amoxicillin", "once every 2 days");
         ArrayList<Drug> testUpdatePeriod = new ArrayList<Drug>();
         testUpdatePeriod.add(new Drug("amoxicillin","500mg","once every 2 days","ear infection"));
         assertEquals(testUpdatePeriod, q.getDrugs());
@@ -136,7 +138,7 @@ public class TestPatient {
     public void testUpdateInstructionsLongerList() {
         q.addDrug(ce);
         q.addDrug(am);
-        q.updateInstructions(am, "twice a day");
+        q.updateInstructions("amoxicillin", "twice a day");
         ArrayList<Drug> testUpdatePeriod = new ArrayList<Drug>();
         testUpdatePeriod.add(ce);
         testUpdatePeriod.add(new Drug("amoxicillin","500mg","twice a day","ear infection"));
