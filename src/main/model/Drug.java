@@ -1,10 +1,9 @@
 package model;
 
-// Represents a drug with a unique name, a dose, a unit (eg mg, mcg, mg/ml etc)
-// a date period representing usage (eg day, 2 days, week),
-// and an integer frequency representing how often they take it within the period.
-// eg. new Drug("venlafaxine", "150", "mg", "day", "1")
-//     declares a new drug named venlafaxine for which 150 mg is to be taken 1 time a day
+// Represents a drug with a unique name, a dose (eg 10mg), a string representing the instructions and a string
+// representing the indication of the drug
+// eg. new Drug("venlafaxine", "150mg", "once daily", anxiety)
+//     declares a new drug named venlafaxine for which 150 mg is to be taken 1 time a day for anxiety
 
 import java.util.Objects;
 
@@ -14,7 +13,7 @@ public class Drug {
     private String instructions;
     private String indication;
 
-    // CONSTRUCTOR, CREATES A NEW DRUG GIVEN NAME, DOSE, MEASURING-UNIT(mg, mcg, g), DOSE UNIT, FREQUENCY
+    // EFFECTS: creates a new drug with a name, dose, a set of instructions and its indication
     public Drug(String name, String dose, String instructions, String indication) {
         this.name = name;
         this.dose = dose;
@@ -29,10 +28,8 @@ public class Drug {
         this.dose = newDose;
     }
 
-    // FOR WHEN PATIENT NEED TO REDUCE/INCREASE PERIOD(EG FROM EVERY DAY TO EVERY OTHER DAY)
-    // REQUIRES: String must be a valid time period (eg. day, 2 days, week, month)
     // MODIFIES: THIS
-    // EFFECTS: updates the period of the drug
+    // EFFECTS: updates the instructions of the drugs
     public void updateInstructions(String newInstructions) {
         this.instructions = newInstructions;
     }
@@ -64,6 +61,7 @@ public class Drug {
     }
 
 
+    // EFFECTS: check if 2 drugs have equivalent fields
     @Override
     public boolean equals(Object o) {
         if (this == o) {

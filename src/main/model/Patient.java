@@ -1,5 +1,6 @@
 package model;
 
+import java.time.DateTimeException;
 import java.util.List;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -15,11 +16,12 @@ public class Patient {
     private List<Drug> drugs;
 
     // CONSTRUCTOR, CREATES NEW PATIENT WITH NO DRUGS AND CONDITIONS GIVEN NAME AND BIRTHDAY
-    // REQUIRES: year must be =< 130 from current year, month must be =< 12
-    // day must be =<31 for months = 1,3,5,7,8,10,12, =<3- for months = 4,6,9,11,
+    // REQUIRES: name must be unique
+    // year must be =< 130 from current year, month must be =< 12
+    // day must be =<31 for months = 1,3,5,7,8,10,12, =<30 for months = 4,6,9,11,
     // =<28 for months=2 and not leap year, =<29 for months=2 and leap year
     // EFFECTS: CREATES A NEW PATIENT
-    public Patient(String name, int year, int month, int day) {
+    public Patient(String name, int year, int month, int day) throws DateTimeException {
         this.name = name;
         this.birthday = LocalDate.of(year, month, day);
         this.age = LocalDate.now().getYear() - year;
@@ -27,7 +29,7 @@ public class Patient {
     }
 
 
-    // EFFECTS: return a list of drugs
+    // EFFECTS: return a list of drugs this patient takes
     public List<Drug> getDrugs() {
         return drugs;
 
@@ -60,10 +62,10 @@ public class Patient {
 
     }
 
-    // REQUIRES: d must be in drugs, newDose >0
-    // MODIFIES: THIS, d
+    // REQUIRES: drugs must contain a drug with drugName as name
+    // MODIFIES: THIS, drug with drugName as name
     // EFFECTS: update the dose of an existing drug
-    public void updateDose(String drugName, String newDose) {
+    public void updateDose(String drugName, String newDose) throws NullPointerException{
         Drug correctDrug = null;
         for (Drug drug: drugs) {
             if (drug.getName().equalsIgnoreCase(drugName)) {
@@ -73,16 +75,17 @@ public class Patient {
         correctDrug.updateDose(newDose);
     }
 
-    // REQUIRES: d must be in drugs
-    // MODIFIES: THIS
+    // REQUIRES: drugs must contain a drug with drugName as name
+    // MODIFIES: THIS, drug in drugs represented by drugName
     // EFFECTS: update the dose period of an existing drugs
-    public void updateInstructions(String drugName, String newInstructions) {
+    public void updateInstructions(String drugName, String newInstructions) throws NullPointerException{
+        Drug correctDrug = null;
         for (Drug drug: drugs) {
             if (drug.getName().equalsIgnoreCase(drugName)) {
-                drug.updateInstructions(newInstructions);
+                correctDrug = drug;
             }
         }
-
+        correctDrug.updateInstructions(newInstructions);
     }
 
 

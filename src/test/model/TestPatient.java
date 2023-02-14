@@ -35,11 +35,6 @@ public class TestPatient {
         assertEquals((LocalDate.now().getYear() - 1999), q.getAge());
     }
 
-
-
-
-    // MODIFIES: THIS
-    // EFFECTS: add a drug to drugs, if the exact same drug (by name) is in there, do nothing
     @Test
     public void testAddDrug() {
         q.addDrug(am);
@@ -62,9 +57,6 @@ public class TestPatient {
         assertEquals(2,q.getDrugs().size());
     }
 
-    // DELETE A DRUG
-    // MODIFIES: THIS
-    // EFFECTS: remove a drug from drugs, if a drug is not in there, do nothing
     @Test
     public void testRemoveDrug() {
         q.addDrug(am);
@@ -97,9 +89,6 @@ public class TestPatient {
         assertEquals(0,q.getDrugs().size());
     }
 
-    // REQUIRES: d must be in drugs, newDose >0
-    // MODIFIES: THIS, d
-    // EFFECTS: update the dose of an existing drug
     @Test
     public void testUpdateDose () {
         q.addDrug(am);
@@ -122,9 +111,6 @@ public class TestPatient {
         assertEquals(testUpdateDrug, q.getDrugs());
     }
 
-    // REQUIRES: d must be in drugs
-    // MODIFIES: THIS
-    // EFFECTS: update the dose period of an existing drugs
     @Test
     public void testUpdateInstructions() {
         q.addDrug(am);
