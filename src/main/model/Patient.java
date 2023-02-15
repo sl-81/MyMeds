@@ -65,7 +65,7 @@ public class Patient {
     // REQUIRES: drugs must contain a drug with drugName as name
     // MODIFIES: THIS, drug with drugName as name
     // EFFECTS: update the dose of an existing drug
-    public void updateDose(String drugName, String newDose) throws NullPointerException{
+    public void updateDose(String drugName, String newDose) throws NullPointerException {
         Drug correctDrug = null;
         for (Drug drug: drugs) {
             if (drug.getName().equalsIgnoreCase(drugName)) {
@@ -78,7 +78,7 @@ public class Patient {
     // REQUIRES: drugs must contain a drug with drugName as name
     // MODIFIES: THIS, drug in drugs represented by drugName
     // EFFECTS: update the dose period of an existing drugs
-    public void updateInstructions(String drugName, String newInstructions) throws NullPointerException{
+    public void updateInstructions(String drugName, String newInstructions) throws NullPointerException {
         Drug correctDrug = null;
         for (Drug drug: drugs) {
             if (drug.getName().equalsIgnoreCase(drugName)) {

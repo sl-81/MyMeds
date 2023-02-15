@@ -18,7 +18,7 @@ public class MyMedsUser {
     public MyMedsUser() {
         patients = new ArrayList<Patient>();
         try {
-        runMyMeds();
+            runMyMeds();
         } catch (InputMismatchException i) {
             System.out.println("Please type in a valid year/month/date");
         } catch (DateTimeException d) {
