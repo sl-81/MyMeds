@@ -29,12 +29,6 @@ public class Patient {
     }
 
 
-    // EFFECTS: return a list of drugs this patient takes
-    public List<Drug> getDrugs() {
-        return drugs;
-
-    }
-
     // MODIFIES: THIS
     // EFFECTS: add a drug to drugs, if the exact same drug (by name) is in there, do nothing
     public void addDrug(Drug d) {
@@ -88,14 +82,15 @@ public class Patient {
         correctDrug.updateInstructions(newInstructions);
     }
 
-
-
-    public LocalDate getBirthday() {
-
-        return birthday;
+    // getters
+    public List<Drug> getDrugs() {
+        return drugs;
 
     }
 
+    public LocalDate getBirthday() {
+        return birthday;
+    }
 
     public String getName() {
         return name;

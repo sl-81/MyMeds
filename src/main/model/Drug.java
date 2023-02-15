@@ -41,6 +41,7 @@ public class Drug {
         return this.name.equalsIgnoreCase(d.getName());
     }
 
+    // getters
     public String getName() {
 
         return this.name;
