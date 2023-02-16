@@ -1,11 +1,11 @@
 package model;
 
-// Represents a drug with a unique name, a dose (eg 10mg), a string representing the instructions and a string
-// representing the indication of the drug
-// eg. new Drug("venlafaxine", "150mg", "once daily", anxiety)
-//     declares a new drug named venlafaxine for which 150 mg is to be taken 1 time a day for anxiety
-
 import java.util.Objects;
+
+// Represents a drug with a unique name, a dose (e.g. 10mg), a string representing the instructions and a string
+// representing the indication of the drug
+// e.g. new Drug("venlafaxine", "150mg", "once daily", anxiety)
+//     declares a new drug named venlafaxine for which 150 mg is to be taken 1 time a day for anxiety
 
 public class Drug {
     private String name;

@@ -10,4 +10,6 @@
 - As a user, I want to be able to add a person to keep track of with their name and birthday as identifier
 - As a user, I want to be able to stop keeping track of a patient and remove them from the interface
 - As a user, I want to be able to add a drug to a patient's chart by entering the drug's name, dosage, and instructions.
+- As a user, I want to be able to update the dose of an existing drug.
+- As a user, I want to be able to update the instructions of an existing drug.
 - As a user, I want to be able to remove a discontinued drug from a patient's profile.
