@@ -13,3 +13,5 @@
 - As a user, I want to be able to update the dose of an existing drug.
 - As a user, I want to be able to update the instructions of an existing drug.
 - As a user, I want to be able to remove a discontinued drug from a patient's profile.
+- As a user, I want to be able to save any changes I've made to the patient list/drug list at any time.
+- As a user, I want to be able to load my last saved profile at any time.

@@ -1,0 +1,32 @@
+{
+  "patient": [
+    {
+      "name": "Harry",
+      "birthday": {
+        "year": 1980,
+        "month": 7,
+        "day": 31
+      },
+      "drugs": []
+    },
+    {
+      "name": "Hermione",
+      "birthday": {
+        "year": 1979,
+        "month": 9,
+        "day": 19
+      },
+      "drugs": []
+    },
+    {
+      "name": "Ron",
+      "birthday": {
+        "year": 1980,
+        "month": 3,
+        "day": 1
+      },
+      "drugs": []
+    }
+
+  ]
+}

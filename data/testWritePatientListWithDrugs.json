@@ -1,0 +1,33 @@
+{"patient": [
+    {
+        "birthday": {
+            "month": 7,
+            "year": 1980,
+            "day": 31
+        },
+        "drugs": [
+            {
+                "instructions": "every 12 hours",
+                "dose": "1 tsp",
+                "name": "Felix Felicis",
+                "indication": "luck"
+            },
+            {
+                "instructions": "use before diving",
+                "dose": "50g",
+                "name": "Gillyweed",
+                "indication": "underwater breathing"
+            }
+        ],
+        "name": "Harry"
+    },
+    {
+        "birthday": {
+            "month": 3,
+            "year": 1980,
+            "day": 1
+        },
+        "drugs": [],
+        "name": "Ron"
+    }
+]}

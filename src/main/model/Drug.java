@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 import java.util.Objects;
 
 // Represents a drug with a unique name, a dose (e.g. 10mg), a string representing the instructions and a string
@@ -74,6 +76,17 @@ public class Drug {
         Drug drug = (Drug) o;
         return getName().equals(drug.getName()) && getDose().equals(drug.getDose())
                 && getInstructions().equals(drug.getInstructions()) && getIndication().equals(drug.getIndication());
+    }
+
+
+    // cop JSONSerializationDemo
+    public JSONObject toJson() {
+        JSONObject drug = new JSONObject();
+        drug.put("name", name);
+        drug.put("dose", dose);
+        drug.put("instructions", instructions);
+        drug.put("indication", indication);
+        return drug;
     }
 
 }

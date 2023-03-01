@@ -1,5 +1,8 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.time.DateTimeException;
 import java.util.List;
 import java.time.LocalDate;
@@ -9,7 +12,6 @@ import java.util.ArrayList;
 // identified by their name and birthday and age
 
 public class Patient {
-
     private String name;
     private LocalDate birthday;
     private int age;
@@ -59,7 +61,7 @@ public class Patient {
     // REQUIRES: drugs must contain a drug with drugName as name
     // MODIFIES: THIS, drug with drugName as name
     // EFFECTS: update the dose of an existing drug
-    public void updateDose(String drugName, String newDose) throws NullPointerException {
+    public void updateDose(String drugName, String newDose) {
         Drug correctDrug = null;
         for (Drug drug: drugs) {
             if (drug.getName().equalsIgnoreCase(drugName)) {
@@ -72,7 +74,7 @@ public class Patient {
     // REQUIRES: drugs must contain a drug with drugName as name
     // MODIFIES: THIS, drug in drugs represented by drugName
     // EFFECTS: update the dose period of an existing drugs
-    public void updateInstructions(String drugName, String newInstructions) throws NullPointerException {
+    public void updateInstructions(String drugName, String newInstructions) {
         Drug correctDrug = null;
         for (Drug drug: drugs) {
             if (drug.getName().equalsIgnoreCase(drugName)) {
@@ -80,6 +82,32 @@ public class Patient {
             }
         }
         correctDrug.updateInstructions(newInstructions);
+    }
+
+
+    //JSONSerializationDemo
+    public JSONObject toJson() {
+        JSONObject patient = new JSONObject();
+        patient.put("name", name);
+        patient.put("birthday", birthdayToJson());
+        patient.put("drugs", drugsToJson());
+        return patient;
+    }
+
+    public JSONArray drugsToJson() {
+        JSONArray drugs = new JSONArray();
+        for (Drug d: this.drugs) {
+            drugs.put(d.toJson());
+        }
+        return drugs;
+    }
+
+    public JSONObject birthdayToJson() {
+        JSONObject birthday = new JSONObject();
+        birthday.put("year", this.birthday.getYear());
+        birthday.put("month", this.birthday.getMonthValue());
+        birthday.put("day", this.birthday.getDayOfMonth());
+        return birthday;
     }
 
     // getters

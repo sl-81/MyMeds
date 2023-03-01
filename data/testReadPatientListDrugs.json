@@ -1,0 +1,59 @@
+{
+  "patient": [
+    {
+      "name": "Harry",
+      "birthday": {
+        "year": 1980,
+        "month": 7,
+        "day": 31
+      },
+      "drugs": [
+        {
+        "name": "Felix Felicis",
+        "dose": "1 tsp",
+        "instructions": "every 12 hours",
+        "indication": "luck"
+        },
+        {
+          "name": "Gillyweed",
+          "dose": "50g",
+          "instructions": "use before diving",
+          "indication": "underwater breathing"
+        }
+      ]
+    },
+    {
+      "name": "Hermione",
+      "birthday": {
+        "year": 1979,
+        "month": 9,
+        "day": 19
+      },
+      "drugs": [
+        {
+          "name": "Polyjuice potion",
+          "dose": "1 cup",
+          "instructions": "use as needed",
+          "indication": "change into someone else"
+        }
+      ]
+    },
+    {
+      "name": "Ron",
+      "birthday": {
+        "year": 1980,
+        "month": 3,
+        "day": 1
+      },
+      "drugs": [
+        {
+          "name": "Amortentia",
+          "dose": "5 drops",
+          "instructions": "added to drinks",
+          "indication": "love potion"
+        }
+      ]
+    }
+
+  ]
+}

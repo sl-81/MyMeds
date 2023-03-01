@@ -1,0 +1,20 @@
+{"patient": [
+    {
+        "birthday": {
+            "month": 7,
+            "year": 1980,
+            "day": 31
+        },
+        "drugs": [],
+        "name": "Harry"
+    },
+    {
+        "birthday": {
+            "month": 3,
+            "year": 1980,
+            "day": 1
+        },
+        "drugs": [],
+        "name": "Ron"
+    }
+]}
