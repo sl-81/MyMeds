@@ -13,7 +13,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class testWriter {
+public class TestWriter {
     private FileWriter test;
     private List<Patient> testPatients;
     private Patient h;

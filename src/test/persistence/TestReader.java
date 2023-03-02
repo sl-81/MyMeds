@@ -10,7 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class testReader {
+public class TestReader {
     private FileReader test;
 
     @Test
@@ -70,4 +70,5 @@ public class testReader {
             fail("not supposed to catch IOException");
         }
     }
+
 }
