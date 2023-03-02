@@ -1,14 +1,30 @@
-{"patient": [{
-    "birthday": {
-        "month": 7,
-        "year": 1980,
-        "day": 31
+{"patient": [
+    {
+        "birthday": {
+            "month": 7,
+            "year": 1980,
+            "day": 31
+        },
+        "drugs": [{
+            "instructions": "eat",
+            "dose": "50g",
+            "name": "gillyweed",
+            "indication": "breathing underwater"
+        }],
+        "name": "harry"
     },
-    "drugs": [{
-        "instructions": "eat",
-        "dose": "50g",
-        "name": "gillyweed",
-        "indication": "breathing underwater"
-    }],
-    "name": "harry"
-}]}
+    {
+        "birthday": {
+            "month": 9,
+            "year": 1979,
+            "day": 19
+        },
+        "drugs": [{
+            "instructions": "as needed",
+            "dose": "1 cup",
+            "name": "polyjuice potion",
+            "indication": "change into someone else"
+        }],
+        "name": "hermione"
+    }
+]}

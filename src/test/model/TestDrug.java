@@ -1,5 +1,6 @@
 package model;
 
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -87,4 +88,12 @@ class TestDrug {
 
     }
 
+    @Test
+    public void testToJson() {
+        JSONObject dJson = d.toJson();
+        assertEquals("amoxicillin", dJson.get("name"));
+        assertEquals("500mg", dJson.get("dose"));
+        assertEquals("2 times a day", dJson.get("instructions"));
+        assertEquals("pneumonia", dJson.get("indication"));
+    }
 }

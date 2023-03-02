@@ -1,7 +1,12 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import persistence.FileReader;
+import persistence.FileWriter;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -131,5 +136,27 @@ public class TestPatient {
         assertEquals(testUpdatePeriod, q.getDrugs());
     }
 
+    @Test
+    public void testBirthdayToJson() {
+        JSONObject testBirthday = p.birthdayToJson();
+        assertEquals(2000, testBirthday.getInt("year"));
+        assertEquals(1, testBirthday.getInt("month"));
+        assertEquals(1, testBirthday.getInt("day"));
+    }
+
+    @Test
+    public void testDrugsToJson() {
+        p.addDrug(am);
+        p.addDrug(ce);
+        JSONArray testList = p.drugsToJson();
+        assertEquals(2, testList.length());
+    }
+
+    @Test
+    public void testToJson() {
+        JSONObject pJson = p.toJson();
+        assertEquals("Test", pJson.get("name"));
+        assertEquals(0,pJson.getJSONArray("drugs").length());
+    }
 
 }
