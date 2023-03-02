@@ -79,7 +79,8 @@ public class Drug {
     }
 
 
-    // cop JSONSerializationDemo
+    // modelled on JSONSerializationDemo
+    // EFFECTS: converts this drug to its JSON representation
     public JSONObject toJson() {
         JSONObject drug = new JSONObject();
         drug.put("name", name);

@@ -13,9 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
+
+// represents a reader that reads the JSON representation of a list of patients to a list of patients
+// code borrowed from JSONSerializationDemo
+
 public class FileReader {
 
-    // code borrowed from JSONSerializationDemo
     private String location;
 
     public FileReader(String location) {
@@ -32,7 +35,7 @@ public class FileReader {
     private String readFile(String source) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();
 
-        try (Stream<String> stream = Files.lines( Paths.get(source), StandardCharsets.UTF_8)) {
+        try (Stream<String> stream = Files.lines(Paths.get(source), StandardCharsets.UTF_8)) {
             stream.forEach(s -> contentBuilder.append(s));
         }
 

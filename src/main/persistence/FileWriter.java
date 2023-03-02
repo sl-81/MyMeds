@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.List;
 
+// represents a writer that writes the JSON representation of a list of patients to file
 // code borrowed from JSONSerializationDemo
 public class FileWriter {
     private PrintWriter writer;

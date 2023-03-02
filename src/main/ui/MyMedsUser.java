@@ -5,6 +5,8 @@ import model.Drug;
 import persistence.FileReader;
 import persistence.FileWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.DateTimeException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -132,7 +134,6 @@ public class MyMedsUser {
         } else if (command.equals("load")) {
             loadList();
         } else if (command.equals("q")) {
-            input.close();
             System.exit(0);
         } else {
             for (Patient p: patients) {
@@ -161,6 +162,10 @@ public class MyMedsUser {
             updateDose();
         } else if (command.equals("ui")) {
             updateInstructions();
+        } else if (command.equals("save")) {
+            saveList();
+        } else if (command.equals("load")) {
+            loadList();
         } else if (command.equals("b")) {
             runMyMeds();
         } else if (command.equals("q")) {
@@ -240,12 +245,30 @@ public class MyMedsUser {
 
     // EFFECTS: save the current list of patients and any updated drug lists
     private void saveList() {
+        writer = new FileWriter(location);
+        try {
+            writer.open();
+            writer.write(patients);
+        } catch (FileNotFoundException e) {
+            System.out.println("Error: cannot write file at location");
+        } finally {
+            writer.close();
+            runMyMeds();
+        }
 
     }
 
     // MODIFIES: this
     // EFFECTS: loads the previously saved patient and drug lists
     private void loadList() {
+        reader = new FileReader(location);
+        try {
+            patients = reader.read();
+        } catch (IOException e) {
+            System.out.println("Error: file not found");
+        } finally {
+            runMyMeds();
+        }
 
     }
 }

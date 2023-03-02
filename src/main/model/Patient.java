@@ -85,7 +85,8 @@ public class Patient {
     }
 
 
-    //JSONSerializationDemo
+    // EFFECTS: converts a patient to its JSON representation
+    // code modelled based on JSONSerializationDemo
     public JSONObject toJson() {
         JSONObject patient = new JSONObject();
         patient.put("name", name);
@@ -94,6 +95,7 @@ public class Patient {
         return patient;
     }
 
+    // EFFECTS: converts the patient's list of drugs to its JSON representation
     public JSONArray drugsToJson() {
         JSONArray drugs = new JSONArray();
         for (Drug d: this.drugs) {
@@ -102,6 +104,7 @@ public class Patient {
         return drugs;
     }
 
+    // EFFECTS: converts the patient's birthday to its JSON representation
     public JSONObject birthdayToJson() {
         JSONObject birthday = new JSONObject();
         birthday.put("year", this.birthday.getYear());
