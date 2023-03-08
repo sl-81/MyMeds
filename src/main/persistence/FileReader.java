@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 
 
 // represents a reader that reads the JSON representation of a list of patients to a list of patients
-// code borrowed from JSONSerializationDemo
+// code modelled from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
 public class FileReader {
 
@@ -25,12 +25,14 @@ public class FileReader {
         this.location = location;
     }
 
+    // EFFECTS: constructs a new reader, reads a list of patients from the stored location and returns it
     public List<Patient> read() throws IOException {
         String jsonData = readFile(location);
         JSONObject file = new JSONObject(jsonData);
         return parseList(file);
     }
 
+    // method copied from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     // EFFECTS: reads source file as string and returns it
     private String readFile(String source) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();

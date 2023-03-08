@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 // represents a writer that writes the JSON representation of a list of patients to file
-// code borrowed from JSONSerializationDemo
+// open,close and savefile from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 public class FileWriter {
     private PrintWriter writer;
     private String destination;

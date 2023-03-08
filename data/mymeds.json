@@ -5,12 +5,7 @@
             "year": 1980,
             "day": 31
         },
-        "drugs": [{
-            "instructions": "eat",
-            "dose": "50g",
-            "name": "gillyweed",
-            "indication": "breathing underwater"
-        }],
+        "drugs": [],
         "name": "harry"
     },
     {
@@ -26,5 +21,14 @@
             "indication": "change into someone else"
         }],
         "name": "hermione"
+    },
+    {
+        "birthday": {
+            "month": 3,
+            "year": 1980,
+            "day": 1
+        },
+        "drugs": [],
+        "name": "ron"
     }
 ]}

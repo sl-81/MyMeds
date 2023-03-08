@@ -44,7 +44,7 @@ public class TestWriter {
     void testWriteEmptyPatientList() {
         try {
             test = new FileWriter("./data/testWriteEmptyPatientList.json");
-            testPatients = new ArrayList();
+            testPatients = new ArrayList<>();
             test.open();
             test.write(testPatients);
             test.close();
