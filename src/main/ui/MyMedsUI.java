@@ -128,4 +128,7 @@ public class MyMedsUI extends JFrame {
     public void addDrug(Drug newDrug) {
         selectedPatient.addDrug(newDrug);
     }
+
+    public void initializeDrugRemover() {
+    }
 }
