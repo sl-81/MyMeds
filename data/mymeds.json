@@ -5,7 +5,12 @@
             "year": 1980,
             "day": 31
         },
-        "drugs": [],
+        "drugs": [{
+            "instructions": "eat",
+            "dose": "50g",
+            "name": "gillyweed",
+            "indication": "breathing underwater"
+        }],
         "name": "harry"
     },
     {
