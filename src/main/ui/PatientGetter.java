@@ -57,7 +57,6 @@ public class PatientGetter extends JPanel {
             Patient newPatient = new Patient (pName.getText(), Integer.valueOf(pYear.getText()), Integer.valueOf(pMonth.getText()), Integer.valueOf(pDay.getText()));
             ui.addPatient(newPatient);
             ui.runMyMeds();
-            pg.setVisible(false);
         }
     }
 

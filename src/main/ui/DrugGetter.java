@@ -28,11 +28,11 @@ public class DrugGetter extends JPanel {
         getName = new JLabel("Name of Drug:");
         getDose = new JLabel("Dose of Drug:");
         getInstructions = new JLabel("Instructions:");
-        getIndications = new JLabel("What is it used for:");
-        name = new JTextField(15);
-        dose = new JTextField(15);
-        instructions = new JTextField(15);
-        indications = new JTextField(15);
+        getIndications = new JLabel("Indications:");
+        name = new JTextField(10);
+        dose = new JTextField(10);
+        instructions = new JTextField(10);
+        indications = new JTextField(10);
         submit = new JButton("Submit");
         submit.addActionListener(new SubmitInfo(this));
         add(getName);
@@ -57,7 +57,6 @@ public class DrugGetter extends JPanel {
             Drug newDrug = new Drug(name.getText(), dose.getText(), instructions.getText(), indications.getText());
             ui.addDrug(newDrug);
             ui.runMyMeds();
-            dg.setVisible(false);
         }
     }
 }

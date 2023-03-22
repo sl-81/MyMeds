@@ -3,6 +3,7 @@ package ui;
 import model.Patient;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -19,6 +20,7 @@ public class PatientDirectory extends JComboBox {
         }
         select = new HandlePatientSelection();
         addActionListener(select);
+        setMaximumSize(new Dimension(400, 100));
     }
 
     private class HandlePatientSelection implements ActionListener {

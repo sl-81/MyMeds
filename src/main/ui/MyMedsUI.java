@@ -8,6 +8,8 @@ import persistence.FileWriter;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +37,8 @@ public class MyMedsUI extends JFrame {
     }
 
     public void runMyMeds() {
-        setVisible(false);
+        getContentPane().removeAll();
+        repaint();
         selectedPatient = null;
         main = new JPanel();
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
@@ -45,19 +48,6 @@ public class MyMedsUI extends JFrame {
         main.add(patientDirectory);
         add(main);
         setVisible(true);
-    }
-
-
-
-    public void initializePatientMenu() {
-        JPanel patientMenuButtons = new JPanel();
-        patientMenuButtons.add(new JButton("Add"));
-        patientMenuButtons.add(new JButton("Remove"));
-        patientMenuButtons.add(new JButton("Update Dose"));
-        patientMenuButtons.add(new JButton("Update Instructions"));
-        patientMenuButtons.add(new JButton("Load"));
-        patientMenuButtons.add(new JButton("Save"));
-        add(patientMenuButtons, -1);
     }
 
     public void initializePatientGetter() {
@@ -93,6 +83,7 @@ public class MyMedsUI extends JFrame {
         }
         if (selectedPatient != null) {
             JPanel selectedPatientInfo = new JPanel();
+            selectedPatientInfo.setLayout(new BoxLayout(selectedPatientInfo, BoxLayout.Y_AXIS));
             selectedPatientInfo.add(new JLabel("Medications " + selectedPatient.getName() + " takes: "));
             for (Drug d: selectedPatient.getDrugs()) {
                 JLabel drugInfo = new JLabel(d.getName() + " " + d.getDose() + " "
@@ -130,5 +121,36 @@ public class MyMedsUI extends JFrame {
     }
 
     public void initializeDrugRemover() {
+        hidePatientMenu();
+        DrugRemover dr = new DrugRemover(this, selectedPatient.getDrugs());
+        main.add(dr);
+    }
+
+    public void removeDrug(String drugName) {
+        selectedPatient.removeDrug(drugName);
+    }
+
+    public void saveList() {
+        writer = new FileWriter(location);
+        try {
+            writer.open();
+            writer.write(patients);
+        } catch (FileNotFoundException e) {
+            System.out.println("Error: cannot write file at location");
+        } finally {
+            writer.close();
+            runMyMeds();
+        }
+    }
+
+    public void loadList() {
+        reader = new FileReader(location);
+        try {
+            patients = reader.read();
+        } catch (IOException e) {
+            System.out.println("Error: file not found");
+        } finally {
+            runMyMeds();
+        }
     }
 }

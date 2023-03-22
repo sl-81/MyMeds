@@ -26,5 +26,14 @@
             "indication": "change into someone else"
         }],
         "name": "hermione"
+    },
+    {
+        "birthday": {
+            "month": 3,
+            "year": 1980,
+            "day": 1
+        },
+        "drugs": [],
+        "name": "ron"
     }
 ]}
