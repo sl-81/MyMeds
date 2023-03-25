@@ -7,19 +7,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class DrugRemover extends JPanel implements ActionListener {
-    private MyMedsUI ui;
-    private JComboBox drugList;
+public class DrugRemover extends SelectFromList {
 
     public DrugRemover(MyMedsUI ui, List<Drug> drugs) {
-        this.ui = ui;
-        drugList = new JComboBox<>();
-        drugList.addItem("Select a drug to remove");
+        super(ui, "Select a drug to remove");
         for (Drug d: drugs) {
-            drugList.addItem(d.getName());
+            objectList.addItem(d.getName());
         }
-        this.add(drugList);
-        drugList.addActionListener(this);
+        this.add(objectList);
     }
 
     @Override

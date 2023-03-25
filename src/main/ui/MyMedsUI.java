@@ -51,17 +51,16 @@ public class MyMedsUI extends JFrame {
     }
 
     public void initializePatientGetter() {
-        hideMainMenu();
-        hidePatientDirectory();
+        hideFrontPage();
         PatientGetter pg = new PatientGetter(this);
         main.add(pg);
     }
 
-    public void hideMainMenu() {
+    private void hideMainMenu() {
         mainMenu.setVisible(false);
     }
 
-    public void hidePatientDirectory() {
+    private void hidePatientDirectory() {
         patientDirectory.setVisible(false);
     }
 
@@ -69,36 +68,46 @@ public class MyMedsUI extends JFrame {
         patientMenu.setVisible(false);
     }
 
+    public void removePatient(String patientName) {
+        Patient toRemove = null;
+        for (Patient p: patients) {
+            if (p.getName().equalsIgnoreCase(patientName)) {
+                toRemove = p;
+            }
+        }
+        patients.remove(toRemove);
+    }
+
+    public void initializePatientRemover() {
+        hideFrontPage();
+        PatientRemover pr = new PatientRemover(this, patients);
+        main.add(pr);
+    }
+
     public void addPatient(Patient p) {
         patients.add(p);
     }
 
     public void disPlayPatient(String patientName) {
-        hideMainMenu();
-        hidePatientDirectory();
+        hideFrontPage();
         for (Patient p: patients) {
-            if(p.getName() == patientName) {
+            if (p.getName() == patientName) {
                 selectedPatient = p;
             }
         }
         if (selectedPatient != null) {
-            JPanel selectedPatientInfo = new JPanel();
-            selectedPatientInfo.setLayout(new BoxLayout(selectedPatientInfo, BoxLayout.Y_AXIS));
-            selectedPatientInfo.add(new JLabel("Medications " + selectedPatient.getName() + " takes: "));
-            for (Drug d: selectedPatient.getDrugs()) {
-                JLabel drugInfo = new JLabel(d.getName() + " " + d.getDose() + " "
-                        + d.getInstructions() + " for " + d.getIndication());
-                selectedPatientInfo.add(drugInfo);
-            }
+            JPanel selectedPatientInfo = new PatientPanel(selectedPatient);
             main.add(selectedPatientInfo);
             patientMenu = new PatientMenu(this);
             main.add(patientMenu);
+        } else {
+            runMyMeds();
         }
     }
 
+
     public void generateGraph() {
-        hideMainMenu();
-        hidePatientDirectory();
+        hideFrontPage();
         List<Integer> drugCount = new ArrayList<>();
         List<String> patientNames = new ArrayList<>();
         for (Patient p: patients) {
@@ -136,7 +145,7 @@ public class MyMedsUI extends JFrame {
             writer.open();
             writer.write(patients);
         } catch (FileNotFoundException e) {
-            System.out.println("Error: cannot write file at location");
+            main.add(new JLabel("Error: cannot write file at location"));
         } finally {
             writer.close();
             runMyMeds();
@@ -148,9 +157,16 @@ public class MyMedsUI extends JFrame {
         try {
             patients = reader.read();
         } catch (IOException e) {
-            System.out.println("Error: file not found");
+            main.add(new JLabel("Error: file not found"));
         } finally {
             runMyMeds();
         }
     }
+
+    private void hideFrontPage() {
+        hideMainMenu();
+        hidePatientDirectory();
+    }
+
+
 }

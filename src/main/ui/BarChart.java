@@ -33,16 +33,23 @@ public class BarChart extends JPanel {
         Graphics2D g1 = (Graphics2D)g;
         int width = getWidth();
         int height = getHeight();
-        g1.drawLine(BORDER, BORDER, BORDER, height-BORDER);
-        g1.drawLine(width -BORDER, height - BORDER, BORDER, height-BORDER);
-        for (int i = 0; i < drugCount.size(); i++) {
-            g1.setPaint(Color.RED);
-            g1.drawRect(i*40+BORDER+i*GAP, (height - drugCount.get(i) * SCALEFACTOR - BORDER), 40, drugCount.get(i) * SCALEFACTOR);
-            g1.fillRect(i*40+BORDER+i*GAP, (height - drugCount.get(i) * SCALEFACTOR - BORDER), 40, drugCount.get(i) * SCALEFACTOR);
-            g1.setPaint(Color.BLACK);
-            g1.drawString(patientNames.get(i), i*40+BORDER+i*GAP, height-BORDER/2);
-            g1.drawString(drugCount.get(i).toString(), i*40+BORDER+i*GAP, (height - drugCount.get(i) * SCALEFACTOR - BORDER));
+        g1.drawLine(BORDER, BORDER, BORDER, height - BORDER);
+        g1.drawLine(width - BORDER, height - BORDER, BORDER, height - BORDER);
+        if (patientNames.size() > 0) {
+            int barSize = (width - BORDER * 2 - GAP * 2) / patientNames.size();
+            for (int i = 0; i < drugCount.size(); i++) {
+                g1.setPaint(Color.RED);
+                g1.drawRect(i * barSize + BORDER + i * GAP, (height - drugCount.get(i) * SCALEFACTOR - BORDER),
+                        barSize, drugCount.get(i) * SCALEFACTOR);
+                g1.fillRect(i * barSize + BORDER + i * GAP, (height - drugCount.get(i) * SCALEFACTOR - BORDER),
+                        barSize, drugCount.get(i) * SCALEFACTOR);
+                g1.setPaint(Color.BLACK);
+                g1.drawString(patientNames.get(i), i * barSize + BORDER + i * GAP, height - BORDER / 2);
+                g1.drawString(drugCount.get(i).toString(), i * barSize + BORDER + i * GAP,
+                        (height - drugCount.get(i) * SCALEFACTOR - BORDER));
+            }
         }
+
     }
 
     public void placeLabel() {
@@ -57,9 +64,11 @@ public class BarChart extends JPanel {
 
     private class GoBackToMain implements ActionListener {
         private BarChart bc;
+
         public GoBackToMain(BarChart bc) {
             this.bc = bc;
         }
+
         @Override
         public void actionPerformed(ActionEvent e) {
             ui.runMyMeds();

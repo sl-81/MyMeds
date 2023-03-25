@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class DrugGetter extends JPanel {
     private JButton submit;
-    private MyMedsUI ui;
+    private final MyMedsUI ui;
     private JLabel getName;
     private JLabel getDose;
     private JLabel getInstructions;
@@ -48,6 +48,7 @@ public class DrugGetter extends JPanel {
 
     private class SubmitInfo implements ActionListener {
         private DrugGetter dg;
+        
         public SubmitInfo(DrugGetter drugGetter) {
             dg = drugGetter;
         }

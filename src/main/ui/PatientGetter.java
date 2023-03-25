@@ -14,10 +14,10 @@ public class PatientGetter extends JPanel {
     private JLabel getYear;
     private JLabel getMonth;
     private JLabel getDay;
-    private JTextField pName;
-    private JTextField pYear;
-    private JTextField pMonth;
-    private JTextField pDay;
+    private JTextField patientName;
+    private JTextField patientYear;
+    private JTextField patientMonth;
+    private JTextField patientDay;
 
     public PatientGetter(MyMedsUI ui) {
         this.ui = ui;
@@ -30,31 +30,34 @@ public class PatientGetter extends JPanel {
         getYear = new JLabel("Year:");
         getMonth = new JLabel("Month:");
         getDay = new JLabel("Day:");
-        pName = new JTextField(15);
-        pYear = new JTextField(15);
-        pMonth = new JTextField(15);
-        pDay = new JTextField(15);
+        patientName = new JTextField(15);
+        patientYear = new JTextField(15);
+        patientMonth = new JTextField(15);
+        patientDay = new JTextField(15);
         submit = new JButton("Submit");
         submit.addActionListener(new SubmitInfo(this));
         add(getName);
-        add(pName);
+        add(patientName);
         add(getYear);
-        add(pYear);
+        add(patientYear);
         add(getMonth);
-        add(pMonth);
+        add(patientMonth);
         add(getDay);
-        add(pDay);
+        add(patientDay);
         add(submit);
     }
 
     private class SubmitInfo implements ActionListener {
         private PatientGetter pg;
+
         private SubmitInfo(PatientGetter pg) {
             this.pg = pg;
         }
+
         @Override
         public void actionPerformed(ActionEvent e) {
-            Patient newPatient = new Patient (pName.getText(), Integer.valueOf(pYear.getText()), Integer.valueOf(pMonth.getText()), Integer.valueOf(pDay.getText()));
+            Patient newPatient = new Patient(patientName.getText(), Integer.valueOf(patientYear.getText()),
+                    Integer.valueOf(patientMonth.getText()), Integer.valueOf(patientDay.getText()));
             ui.addPatient(newPatient);
             ui.runMyMeds();
         }

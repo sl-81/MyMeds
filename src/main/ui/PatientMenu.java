@@ -5,6 +5,7 @@ import ui.button.*;
 import javax.swing.*;
 
 public class PatientMenu extends JPanel {
+
     public PatientMenu(MyMedsUI ui) {
         add(new AddDrug(ui));
         add(new RemoveDrug(ui));
