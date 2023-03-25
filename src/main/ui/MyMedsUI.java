@@ -56,16 +56,14 @@ public class MyMedsUI extends JFrame {
         main.add(pg);
     }
 
-    private void hideMainMenu() {
-        mainMenu.setVisible(false);
+    public void addPatient(Patient p) {
+        patients.add(p);
     }
 
-    private void hidePatientDirectory() {
-        patientDirectory.setVisible(false);
-    }
-
-    public void hidePatientMenu() {
-        patientMenu.setVisible(false);
+    public void initializePatientRemover() {
+        hideFrontPage();
+        PatientRemover pr = new PatientRemover(this, patients);
+        main.add(pr);
     }
 
     public void removePatient(String patientName) {
@@ -76,16 +74,6 @@ public class MyMedsUI extends JFrame {
             }
         }
         patients.remove(toRemove);
-    }
-
-    public void initializePatientRemover() {
-        hideFrontPage();
-        PatientRemover pr = new PatientRemover(this, patients);
-        main.add(pr);
-    }
-
-    public void addPatient(Patient p) {
-        patients.add(p);
     }
 
     public void disPlayPatient(String patientName) {
@@ -104,7 +92,6 @@ public class MyMedsUI extends JFrame {
             runMyMeds();
         }
     }
-
 
     public void generateGraph() {
         hideFrontPage();
@@ -164,9 +151,12 @@ public class MyMedsUI extends JFrame {
     }
 
     private void hideFrontPage() {
-        hideMainMenu();
-        hidePatientDirectory();
+        mainMenu.setVisible(false);
+        patientDirectory.setVisible(false);
     }
 
+    private void hidePatientMenu() {
+        patientMenu.setVisible(false);
+    }
 
 }

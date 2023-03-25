@@ -15,3 +15,13 @@
 - As a user, I want to be able to remove a discontinued drug from a patient's profile.
 - As a user, I want to be able to save any changes I've made to the patient list/drug list at any time.
 - As a user, I want to be able to load my last saved profile at any time.
+
+## Instructions for Grader:
+- You can add a patient to your list by clicking on the "Add a patient" button on the main page then entering their name and birthday
+- You can remove a patient from your list by clicking on the "Remove a patient" on the main page then selecting the patient's name from the dropdown menu
+- You can view a patient by selecting their name from the dropdown menu on the main page
+- You can add a drug to a patient's medication list by selecting a patient to view from the dropdown menu on the main page, then click on the "Add a drug" button from the patient's info page
+- You can remove a drug from a patient's medication list by selecting a patient to view from the dropdown menu on the main page, then click on the "Remove a drug" button from the patient's info page, then select the drug to remove from the dropdown menu that appears
+- You can generate a barchart showing each patient and the number of drugs they take by clicking on the "Display Patient Drug Graph" button on the main page.
+- You can save your current list by clicking on the "Save current data" button on the main page
+- You can load your previously saved list by clicking on the "Load last saved data" button on the main page
