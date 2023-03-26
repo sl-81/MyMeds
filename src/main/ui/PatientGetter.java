@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// a panel that contains the form to get user input on a new patient to be added
+
 public class PatientGetter extends JPanel {
     private JButton submit;
     private MyMedsUI ui;
@@ -19,12 +21,14 @@ public class PatientGetter extends JPanel {
     private JTextField patientMonth;
     private JTextField patientDay;
 
+    // EFFECTS: CREATES A NEW PANEL DISPLAYING FORM
     public PatientGetter(MyMedsUI ui) {
         this.ui = ui;
         initializeForm();
         setVisible(true);
     }
 
+    // EFFECTS: PLACE AVAILABLE FIELDS OF FORM ONTO THE PANEL
     private void initializeForm() {
         getName = new JLabel("Name:");
         getYear = new JLabel("Year:");
@@ -47,13 +51,16 @@ public class PatientGetter extends JPanel {
         add(submit);
     }
 
+    // ACTIONLISTENER FOR THE SUBMIT BUTTON
     private class SubmitInfo implements ActionListener {
         private PatientGetter pg;
 
+        // EFFECTS: CREATE NEW ACTIONLISTENER
         private SubmitInfo(PatientGetter pg) {
             this.pg = pg;
         }
 
+        // EFFECTS: OBTAIN PATIENT INFO FROM SUBMITTED FORM AND GET UI TO ADD PATIENT AND RERUN
         @Override
         public void actionPerformed(ActionEvent e) {
             Patient newPatient = new Patient(patientName.getText(), Integer.valueOf(patientYear.getText()),

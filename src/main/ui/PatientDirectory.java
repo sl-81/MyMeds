@@ -5,12 +5,14 @@ import model.Patient;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 
+// A panel that displays the list of patients currently keeping track of as a dropdown menu
+// can select a patient from the menu and view their details
 
 public class PatientDirectory extends SelectFromList {
 
+    //EFFECTS: CREATES A NEW PANEL WITH THE GIVEN LIST OF PATIENTS
     public PatientDirectory(MyMedsUI ui, List<Patient> patients) {
         super(ui, "Select a patient to view");
         for (Patient p: patients) {
@@ -20,6 +22,7 @@ public class PatientDirectory extends SelectFromList {
         setMaximumSize(new Dimension(400, 100));
     }
 
+    // EFFECTS: OBTAIN THE PATIENT NAME SELECTED BY THE USER AND GET UI TO DISPLAY THAT PATIENT'S INFO
     @Override
     public void actionPerformed(ActionEvent e) {
         JComboBox<String> cb = (JComboBox<String>) e.getSource();

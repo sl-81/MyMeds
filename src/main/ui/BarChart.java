@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+// Represents a bar chart that shows the patients in the system and how many drugs they take
 public class BarChart extends JPanel {
     private static final int SCALEFACTOR = 50;
     private static final int BORDER = 30;
@@ -16,7 +17,7 @@ public class BarChart extends JPanel {
     private JButton back;
     private MyMedsUI ui;
 
-
+    // EFFECTS: CREATES A NEW BARCHART TO BE ADDED TO THE UI
     public BarChart(MyMedsUI ui, List<Integer> drugCount, List<String> patientNames, String title) {
         this.ui = ui;
         this.drugCount = drugCount;
@@ -27,7 +28,8 @@ public class BarChart extends JPanel {
         initializeBackButton();
     }
 
-
+    // EFFECTS: DRAWS THE BAR CHART'S VERTICAL AND HORIZONTAL AXIS THEN THE INDIVIDUAL BARS FOLLOWED BY NAME
+    // AND NUMBER OF DRUGS
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g1 = (Graphics2D)g;
@@ -52,23 +54,28 @@ public class BarChart extends JPanel {
 
     }
 
+    // EFFECTS: ADDS THE PROVIDED TITLE TO THE BAR CHART
     public void placeLabel() {
         JLabel graphTitle = new JLabel(title);
         add(graphTitle);
     }
 
+    // EFFECTS: INITIATES BUTTON TO GO BACK TO MAIN ON CLICK
     private void initializeBackButton() {
         back.addActionListener(new GoBackToMain(this));
         add(back);
     }
 
+    // ACTION LISTENER TO THE BACK BUTTON
     private class GoBackToMain implements ActionListener {
         private BarChart bc;
 
+        // EFFECTS: CONSTRUCTS ACTION LISTENER
         public GoBackToMain(BarChart bc) {
             this.bc = bc;
         }
 
+        // EFFECTS: RESET UI TO FRONTPAGE AND SET BAR CHART INVISIBLE
         @Override
         public void actionPerformed(ActionEvent e) {
             ui.runMyMeds();
