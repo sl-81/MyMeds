@@ -9,10 +9,8 @@ import java.awt.event.ActionEvent;
 public class AddPatient extends PatientButton {
 
     // EFFECTS: CREATES NEW BUTTON
-    public AddPatient(MyMedsUI ui) {
-        super("Add a patient");
-        this.ui = ui;
-        addActionListener(this);
+    public AddPatient(MyMedsUI ui, String msg) {
+        super(ui, msg);
     }
 
     // MODIFIES: UI

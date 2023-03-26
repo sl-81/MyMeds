@@ -9,10 +9,8 @@ import java.awt.event.ActionEvent;
 public class SaveFile extends PatientButton {
 
     // EFFECTS: CREATES BUTTON
-    public SaveFile(MyMedsUI ui) {
-        super("Save current data");
-        this.ui = ui;
-        addActionListener(this);
+    public SaveFile(MyMedsUI ui, String msg) {
+        super(ui, msg);
     }
 
     // MODIFIES: UI

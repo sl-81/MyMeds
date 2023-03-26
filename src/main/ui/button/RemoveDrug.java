@@ -9,11 +9,9 @@ import java.awt.event.ActionEvent;
 public class RemoveDrug extends PatientButton {
 
     //EFFECTS: CREATES THE BUTTON
-    public RemoveDrug(MyMedsUI ui) {
+    public RemoveDrug(MyMedsUI ui, String msg) {
 
-        super("Remove a drug");
-        this.ui = ui;
-        addActionListener(this);
+        super(ui, msg);
     }
 
     // MODIFIES: UI

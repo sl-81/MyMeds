@@ -7,10 +7,8 @@ import java.awt.event.ActionEvent;
 public class RemovePatient extends PatientButton {
 
     // EFFECTS: CREATES BUTTON
-    public RemovePatient(MyMedsUI ui) {
-        super("Remove a patient");
-        this.ui = ui;
-        addActionListener(this);
+    public RemovePatient(MyMedsUI ui, String msg) {
+        super(ui, msg);
     }
 
     // MODIFIES: UI

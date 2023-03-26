@@ -10,8 +10,10 @@ public abstract class PatientButton extends JButton implements ActionListener {
     protected MyMedsUI ui;
 
     // EFFECTS: CREATES BUTTON
-    public PatientButton(String msg) {
+    public PatientButton(MyMedsUI ui, String msg) {
         super(msg);
+        this.ui = ui;
+        addActionListener(this);
     }
 
 }

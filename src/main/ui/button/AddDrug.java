@@ -8,10 +8,8 @@ import java.awt.event.ActionEvent;
 public class AddDrug extends PatientButton {
 
     // EFFECTS: CREATES THE BUTTON
-    public AddDrug(MyMedsUI ui) {
-        super("Add a drug");
-        this.ui = ui;
-        addActionListener(this);
+    public AddDrug(MyMedsUI ui, String msg) {
+        super(ui, msg);
     }
 
     // MODIFIES: UI

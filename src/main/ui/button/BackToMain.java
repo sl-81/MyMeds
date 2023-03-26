@@ -8,10 +8,8 @@ import java.awt.event.ActionEvent;
 public class BackToMain extends PatientButton {
 
     // EFFECTS: CREATES BUTTON
-    public BackToMain(MyMedsUI ui) {
-        super("Back to main");
-        this.ui = ui;
-        addActionListener(this);
+    public BackToMain(MyMedsUI ui, String msg) {
+        super(ui, msg);
     }
 
     // MODIFIES: UI

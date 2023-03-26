@@ -8,10 +8,8 @@ import java.awt.event.ActionEvent;
 public class LoadFile extends PatientButton {
 
     // EFFECTS: CREATES BUTTON
-    public LoadFile(MyMedsUI ui) {
-        super("Load last saved data");
-        this.ui = ui;
-        addActionListener(this);
+    public LoadFile(MyMedsUI ui, String msg) {
+        super(ui, msg);
     }
 
     // MODIFIES: UI

@@ -9,10 +9,8 @@ import java.awt.event.ActionEvent;
 public class DisplayGraph extends PatientButton {
 
     // EFFECTS: CREATES BUTTON
-    public DisplayGraph(MyMedsUI ui) {
-        super("Display Patient Drug Graph");
-        this.ui = ui;
-        addActionListener(this);
+    public DisplayGraph(MyMedsUI ui, String msg) {
+        super(ui, msg);
     }
 
     // MODIFIES: UI
