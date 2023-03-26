@@ -9,13 +9,11 @@ public class LoadFile extends PatientButton {
     public LoadFile(MyMedsUI ui) {
         super("Load last saved data");
         this.ui = ui;
-        addActionListener(new FileLoader());
+        addActionListener(this);
     }
 
-    private class FileLoader implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            ui.loadList();
-        }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        ui.loadList();
     }
 }

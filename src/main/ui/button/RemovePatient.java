@@ -11,13 +11,12 @@ public class RemovePatient extends PatientButton {
     public RemovePatient(MyMedsUI ui) {
         super("Remove a patient");
         this.ui = ui;
-        addActionListener(new HandlePatientRemoval());
+        addActionListener(this);
     }
 
-    private class HandlePatientRemoval implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            ui.initializePatientRemover();
-        }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        ui.initializePatientRemover();
     }
+
 }

@@ -10,13 +10,12 @@ public class SaveFile extends PatientButton {
     public SaveFile(MyMedsUI ui) {
         super("Save current data");
         this.ui = ui;
-        addActionListener(new FileSaver());
+        addActionListener(this);
     }
 
-    private class FileSaver implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            ui.saveList();
-        }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        ui.saveList();
     }
+
 }

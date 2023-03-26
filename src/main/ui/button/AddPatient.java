@@ -11,16 +11,13 @@ public class AddPatient extends PatientButton {
     public AddPatient(MyMedsUI ui) {
         super("Add a patient");
         this.ui = ui;
-        addActionListener(new PatientAdder());
+        addActionListener(this);
     }
 
-    private class PatientAdder implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-            ui.initializePatientGetter();
-        }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        ui.initializePatientGetter();
     }
+
 
 }

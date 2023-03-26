@@ -11,13 +11,12 @@ public class DisplayGraph extends PatientButton {
     public DisplayGraph(MyMedsUI ui) {
         super("Display Patient Drug Graph");
         this.ui = ui;
-        addActionListener(new GraphGenerator());
+        addActionListener(this);
     }
 
-    private class GraphGenerator implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            ui.generateGraph();
-        }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        ui.generateGraph();
     }
+
 }

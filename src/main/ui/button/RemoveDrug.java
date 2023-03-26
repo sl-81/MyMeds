@@ -10,13 +10,12 @@ public class RemoveDrug extends PatientButton {
 
         super("Remove a drug");
         this.ui = ui;
-        addActionListener(new HandleDrugRemoval());
+        addActionListener(this);
     }
 
-    private class HandleDrugRemoval implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            ui.initializeDrugRemover();
-        }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        ui.initializeDrugRemover();
     }
+
 }

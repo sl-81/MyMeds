@@ -9,13 +9,12 @@ public class BackToMain extends PatientButton {
     public BackToMain(MyMedsUI ui) {
         super("Back to main");
         this.ui = ui;
-        addActionListener(new GoBack());
+        addActionListener(this);
     }
 
-    private class GoBack implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            ui.runMyMeds();
-        }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        ui.runMyMeds();
     }
+
 }

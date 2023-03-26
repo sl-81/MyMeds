@@ -5,12 +5,20 @@
             "year": 1980,
             "day": 31
         },
-        "drugs": [{
-            "instructions": "eat",
-            "dose": "50g",
-            "name": "gillyweed",
-            "indication": "breathing underwater"
-        }],
+        "drugs": [
+            {
+                "instructions": "eat",
+                "dose": "50g",
+                "name": "gillyweed",
+                "indication": "breathing underwater"
+            },
+            {
+                "instructions": "drink",
+                "dose": "100ml",
+                "name": "felix felicis",
+                "indication": "good luck"
+            }
+        ],
         "name": "harry"
     },
     {
