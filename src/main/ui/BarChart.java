@@ -75,6 +75,7 @@ public class BarChart extends JPanel {
             this.bc = bc;
         }
 
+        // MODIFIES: UI
         // EFFECTS: RESET UI TO FRONTPAGE AND SET BAR CHART INVISIBLE
         @Override
         public void actionPerformed(ActionEvent e) {

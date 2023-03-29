@@ -22,6 +22,7 @@ public class PatientDirectory extends SelectFromList {
         setMaximumSize(new Dimension(400, 100));
     }
 
+    // MODIFIES: UI
     // EFFECTS: OBTAIN THE PATIENT NAME SELECTED BY THE USER AND GET UI TO DISPLAY THAT PATIENT'S INFO
     @Override
     public void actionPerformed(ActionEvent e) {

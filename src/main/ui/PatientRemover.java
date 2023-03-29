@@ -21,6 +21,7 @@ public class PatientRemover extends SelectFromList {
         setMaximumSize(new Dimension(400, 100));
     }
 
+    // MODIFIES: UI
     // EFFECTS: GET PATIENT NAME TO BE REMOVED AND GET UI TO REMOVE PATIENT AND RERUN
     @Override
     public void actionPerformed(ActionEvent e) {

@@ -6,6 +6,7 @@ import model.Patient;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.DateTimeException;
 
 // a panel that contains the form to get user input on a new patient to be added
 
@@ -60,13 +61,22 @@ public class PatientGetter extends JPanel {
             this.pg = pg;
         }
 
+        // MODIFIES: UI
         // EFFECTS: OBTAIN PATIENT INFO FROM SUBMITTED FORM AND GET UI TO ADD PATIENT AND RERUN
         @Override
         public void actionPerformed(ActionEvent e) {
-            Patient newPatient = new Patient(patientName.getText(), Integer.valueOf(patientYear.getText()),
-                    Integer.valueOf(patientMonth.getText()), Integer.valueOf(patientDay.getText()));
-            ui.addPatient(newPatient);
-            ui.runMyMeds();
+            try {
+                Patient newPatient = new Patient(patientName.getText(), Integer.valueOf(patientYear.getText()),
+                        Integer.valueOf(patientMonth.getText()), Integer.valueOf(patientDay.getText()));
+                ui.addPatient(newPatient);
+                ui.runMyMeds();
+            } catch (DateTimeException dte) {
+                ui.runMyMeds();
+                ui.setMessage("Please enter a valid date");
+            } catch (NumberFormatException nfe) {
+                ui.runMyMeds();
+                ui.setMessage("Please enter a valid date");
+            }
         }
     }
 

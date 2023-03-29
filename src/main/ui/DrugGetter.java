@@ -58,6 +58,7 @@ public class DrugGetter extends JPanel {
             dg = drugGetter;
         }
 
+        // MODIFIES: UI
         // EFFECTS: GET UI TO ADD INFO TO PATIENT'S DRUG LIST AS NEW DRUG THEN RERUN
         @Override
         public void actionPerformed(ActionEvent e) {

@@ -23,11 +23,13 @@ public class MyMedsUI extends JFrame {
     private MainMenu mainMenu;
     private PatientDirectory patientDirectory;
     private PatientMenu patientMenu;
+    private JLabel message;
     private FileReader reader;
     private FileWriter writer;
     private List<Patient> patients;
     private Patient selectedPatient;
 
+    // EFFECTS: CREATES NEW JFRAME AND INITIALIZES AN EMPTY PATIENT LIST
     public MyMedsUI() {
         super("My Meds");
         patients = new ArrayList<>();
@@ -36,6 +38,8 @@ public class MyMedsUI extends JFrame {
         runMyMeds();
     }
 
+    // MODIFIES: THIS
+    // EFFECTS: REMOVE ALL COMPONENTS, RESET SELECTED PATIENT, ADD NEW MAINMENU AND PATIENTDIRECTORY
     public void runMyMeds() {
         getContentPane().removeAll();
         repaint();
@@ -44,28 +48,36 @@ public class MyMedsUI extends JFrame {
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
         mainMenu = new MainMenu(this);
         patientDirectory = new PatientDirectory(this, patients);
+        message = new JLabel("", JLabel.CENTER);
         main.add(mainMenu);
         main.add(patientDirectory);
+        main.add(message);
         add(main);
         setVisible(true);
     }
 
+    // EFFECTS: HIDE THE FRONTPAGE, DISPLAY FORM TO OBTAIN NEW PATIENT INFO FROM USER
     public void initializePatientGetter() {
         hideFrontPage();
         PatientGetter pg = new PatientGetter(this);
         main.add(pg);
     }
 
+    // MODIFIES: this
+    // EFFECTS: add a patient to patients
     public void addPatient(Patient p) {
         patients.add(p);
     }
 
+    // EFFECTS: HIDE THE FRONT PAGE, DISPLAY DROPDOWN MENU WITH CURRENT PATIENT TO GET PATIENT TO REMOVE FROM USER
     public void initializePatientRemover() {
         hideFrontPage();
         PatientRemover pr = new PatientRemover(this, patients);
         main.add(pr);
     }
 
+    // MODIFIES: this
+    // EFFECTS: remove a patient from patients
     public void removePatient(String patientName) {
         Patient toRemove = null;
         for (Patient p: patients) {
@@ -76,6 +88,8 @@ public class MyMedsUI extends JFrame {
         patients.remove(toRemove);
     }
 
+    // MODIFIES: THIS
+    // EFFECTS: DISPLAY INFO FOR THE PATIENT USER SELECTED, AND DISPLAY OPERATIONS USER CAN PERFORM ON ONE PATIENT
     public void disPlayPatient(String patientName) {
         hideFrontPage();
         for (Patient p: patients) {
@@ -93,6 +107,8 @@ public class MyMedsUI extends JFrame {
         }
     }
 
+    // MODIFIES: THIS
+    // EFFECTS: DISPLAY A GRAPH OF PATIENT AND NUMBER OF DRUGS THEY'RE ON
     public void generateGraph() {
         hideFrontPage();
         List<Integer> drugCount = new ArrayList<>();
@@ -106,26 +122,35 @@ public class MyMedsUI extends JFrame {
         main.add(graph);
     }
 
+    // MODIFIES: THIS
+    // EFFECTS: DISPLAY A FORM TO GET INFO OF NEW DRUG TO BE ADDED TO LIST FROM THE USER
     public void initializeDrugGetter() {
         hidePatientMenu();
         DrugGetter dg = new DrugGetter(this);
         main.add(dg);
     }
 
+    // MODIFIES: selectedPatient
+    // EFFECTS: add a drug to the selectedPatient's list of drugs
     public void addDrug(Drug newDrug) {
         selectedPatient.addDrug(newDrug);
     }
 
+    // MODIFIES: THIS
+    // EFFECTS: DISPLAY A DROPDOWN MENU OF ALL OF PATIENT'S DRUG AND GET INFO FROM USER ABOUT WHICH ONE TO REMOVE
     public void initializeDrugRemover() {
         hidePatientMenu();
         DrugRemover dr = new DrugRemover(this, selectedPatient.getDrugs());
         main.add(dr);
     }
 
+    // MODIFIES: selectedPatient
+    // EFFECTS: remove a drug from the selectedPatient's list of drugs
     public void removeDrug(String drugName) {
         selectedPatient.removeDrug(drugName);
     }
 
+    // EFFECTS: save the current list of patients and any updated drug lists
     public void saveList() {
         writer = new FileWriter(location);
         try {
@@ -139,6 +164,8 @@ public class MyMedsUI extends JFrame {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: loads the previously saved patient and drug lists
     public void loadList() {
         reader = new FileReader(location);
         try {
@@ -150,13 +177,21 @@ public class MyMedsUI extends JFrame {
         }
     }
 
+    // MODIFIES: THIS
+    // EFFECTS: HIDE THE MAINMENU AND PATIENTDIRECTORY WHILE SELECTED PATIENT IS NOT NULL
     private void hideFrontPage() {
         mainMenu.setVisible(false);
         patientDirectory.setVisible(false);
+        message.setVisible(false);
     }
 
+    // MODIFIES: THIS
+    // EFFECTS: HIDE PATIENT MENU
     private void hidePatientMenu() {
         patientMenu.setVisible(false);
     }
 
+    public void setMessage(String message) {
+        this.message.setText(message);
+    }
 }

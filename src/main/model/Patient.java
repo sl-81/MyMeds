@@ -23,7 +23,7 @@ public class Patient {
     // day must be =<31 for months = 1,3,5,7,8,10,12, =<30 for months = 4,6,9,11,
     // =<28 for months=2 and not leap year, =<29 for months=2 and leap year
     // EFFECTS: CREATES A NEW PATIENT
-    public Patient(String name, int year, int month, int day) throws DateTimeException {
+    public Patient(String name, int year, int month, int day) throws NumberFormatException {
         this.name = name;
         this.birthday = LocalDate.of(year, month, day);
         this.age = LocalDate.now().getYear() - year;

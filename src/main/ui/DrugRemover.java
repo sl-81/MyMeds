@@ -18,6 +18,7 @@ public class DrugRemover extends SelectFromList {
         this.add(objectList);
     }
 
+    // MODIFIES: UI
     // EFFECTS: GET THE DRUG NAME FROM USER'S SELECTION AND GET UI TO REMOVE THE DRUG AND RERUN
     @Override
     public void actionPerformed(ActionEvent e) {
