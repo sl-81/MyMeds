@@ -93,7 +93,7 @@ public class MyMedsUI extends JFrame {
     public void disPlayPatient(String patientName) {
         hideFrontPage();
         for (Patient p: patients) {
-            if (p.getName() == patientName) {
+            if (p.getName().equals(patientName)) {
                 selectedPatient = p;
             }
         }

@@ -2,7 +2,6 @@ package model;
 
 import org.json.JSONObject;
 
-import java.util.Objects;
 
 // Represents a drug with a unique name, a dose (e.g. 10mg), a string representing the instructions and a string
 // representing the indication of the drug

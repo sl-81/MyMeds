@@ -40,7 +40,7 @@ public class PatientGetter extends JPanel {
         patientMonth = new JTextField(15);
         patientDay = new JTextField(15);
         submit = new JButton("Submit");
-        submit.addActionListener(new SubmitInfo(this));
+        submit.addActionListener(new SubmitInfo());
         add(getName);
         add(patientName);
         add(getYear);
@@ -54,20 +54,14 @@ public class PatientGetter extends JPanel {
 
     // ACTIONLISTENER FOR THE SUBMIT BUTTON
     private class SubmitInfo implements ActionListener {
-        private PatientGetter pg;
-
-        // EFFECTS: CREATE NEW ACTIONLISTENER
-        private SubmitInfo(PatientGetter pg) {
-            this.pg = pg;
-        }
 
         // MODIFIES: UI
         // EFFECTS: OBTAIN PATIENT INFO FROM SUBMITTED FORM AND GET UI TO ADD PATIENT AND RERUN
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                Patient newPatient = new Patient(patientName.getText(), Integer.valueOf(patientYear.getText()),
-                        Integer.valueOf(patientMonth.getText()), Integer.valueOf(patientDay.getText()));
+                Patient newPatient = new Patient(patientName.getText(), Integer.parseInt(patientYear.getText()),
+                        Integer.parseInt(patientMonth.getText()), Integer.parseInt(patientDay.getText()));
                 ui.addPatient(newPatient);
                 ui.runMyMeds();
             } catch (DateTimeException dte) {
@@ -75,7 +69,7 @@ public class PatientGetter extends JPanel {
                 ui.setMessage("Please enter a valid date");
             } catch (NumberFormatException nfe) {
                 ui.runMyMeds();
-                ui.setMessage("Please enter a valid date");
+                ui.setMessage("Please enter valid integers as date");
             }
         }
     }

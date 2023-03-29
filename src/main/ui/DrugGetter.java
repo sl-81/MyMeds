@@ -37,7 +37,7 @@ public class DrugGetter extends JPanel {
         instructions = new JTextField(10);
         indications = new JTextField(10);
         submit = new JButton("Submit");
-        submit.addActionListener(new SubmitInfo(this));
+        submit.addActionListener(new SubmitInfo());
         add(getName);
         add(name);
         add(getDose);
@@ -51,12 +51,6 @@ public class DrugGetter extends JPanel {
 
     // action listener for the submit button of this class
     private class SubmitInfo implements ActionListener {
-        private DrugGetter dg;
-
-        // EFFECTS: CONSTRUCTS THIS CLASS'S ACTION LISTENER (FOR THE SUBMIT BUTTON)
-        public SubmitInfo(DrugGetter drugGetter) {
-            dg = drugGetter;
-        }
 
         // MODIFIES: UI
         // EFFECTS: GET UI TO ADD INFO TO PATIENT'S DRUG LIST AS NEW DRUG THEN RERUN
