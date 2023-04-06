@@ -27,14 +27,16 @@
 - You can load your previously saved list by clicking on the "Load last saved data" button on the main page
 
 ## Phase 4: Task 2:
-Added patient x to record.
-advil is added to patient x's file.
-Saved file.
-Removed patient x from record.
-Loading previously saved file...
-advil is added to patient x's file.
-Added patient x to record.
-Successfully loaded previously saved file.
-advil is removed from patient x's file.
-Removed patient x from record.
-Saved file.
+- Added patient x to record.
+- advil is added to patient x's file.
+- Saved file.
+- Removed patient x from record.
+- Loading previously saved file...
+- advil is added to patient x's file.
+- Added patient x to record.
+- Successfully loaded previously saved file.
+- advil is removed from patient x's file.
+- Removed patient x from record.
+- Saved file.
+
+##Phase 4: Task 3
