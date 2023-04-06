@@ -1,6 +1,7 @@
 package ui;
 
 import model.Drug;
+import ui.button.BackToMain;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -16,6 +17,7 @@ public class DrugRemover extends SelectFromList {
             objectList.addItem(d.getName());
         }
         this.add(objectList);
+        this.add(new BackToMain(ui, "Back to main"));
     }
 
     // MODIFIES: UI
