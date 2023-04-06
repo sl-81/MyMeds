@@ -31,7 +31,7 @@ public class Patient {
 
 
     // MODIFIES: THIS
-    // EFFECTS: add a drug to drugs, if the exact same drug (by name) is in there, do nothing
+    // EFFECTS: add a drug to drugs and log activity, if the exact same drug (by name) is in there, do nothing
     public void addDrug(Drug d) {
         boolean contains = false;
         for (Drug drug: drugs) {
@@ -42,11 +42,12 @@ public class Patient {
         }
         if (!contains) {
             drugs.add(d);
+            EventLog.getInstance().logEvent(new Event(d.getName() + " is added to " + name + "'s file."));
         }
     }
 
     // MODIFIES: THIS
-    // EFFECTS: remove a drug from drugs, if a drug is not in there, do nothing
+    // EFFECTS: remove a drug from drugs and log activity, if a drug is not in there, do nothing
     public void removeDrug(String drugName) {
         Drug sameNameAsD = null;
         for (Drug drug: drugs) {
@@ -54,7 +55,11 @@ public class Patient {
                 sameNameAsD = drug;
             }
         }
-        drugs.remove(sameNameAsD);
+        if (!(sameNameAsD == null)) {
+            drugs.remove(sameNameAsD);
+            EventLog.getInstance().logEvent(new Event(sameNameAsD.getName()
+                    + " is removed from " + name + "'s file."));
+        }
 
     }
 

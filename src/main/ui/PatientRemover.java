@@ -1,6 +1,7 @@
 package ui;
 
 import model.Patient;
+import model.PatientsRecord;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +13,7 @@ import java.util.List;
 public class PatientRemover extends SelectFromList {
 
     // EFFECTS: CONSTRUCTS NEW PATIENT REMOVER PANEL
-    public PatientRemover(MyMedsUI ui, List<Patient> patients) {
+    public PatientRemover(MyMedsUI ui, PatientsRecord patients) {
         super(ui, "Select a patient to remove");
         for (Patient p: patients) {
             objectList.addItem(p.getName());

@@ -1,6 +1,7 @@
 package ui;
 
 import model.Patient;
+import model.PatientsRecord;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +14,7 @@ import java.util.List;
 public class PatientDirectory extends SelectFromList {
 
     //EFFECTS: CREATES A NEW PANEL WITH THE GIVEN LIST OF PATIENTS
-    public PatientDirectory(MyMedsUI ui, List<Patient> patients) {
+    public PatientDirectory(MyMedsUI ui, PatientsRecord patients) {
         super(ui, "Select a patient to view");
         for (Patient p: patients) {
             objectList.addItem(p.getName());

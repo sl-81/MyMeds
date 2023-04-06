@@ -25,3 +25,16 @@
 - You can generate a barchart showing each patient and the number of drugs they take by clicking on the "Display Patient Drug Graph" button on the main page.
 - You can save your current list by clicking on the "Save current data" button on the main page
 - You can load your previously saved list by clicking on the "Load last saved data" button on the main page
+
+## Phase 4: Task 2:
+Added patient x to record.
+advil is added to patient x's file.
+Saved file.
+Removed patient x from record.
+Loading previously saved file...
+advil is added to patient x's file.
+Added patient x to record.
+Successfully loaded previously saved file.
+advil is removed from patient x's file.
+Removed patient x from record.
+Saved file.

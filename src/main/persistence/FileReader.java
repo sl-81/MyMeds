@@ -1,7 +1,6 @@
 package persistence;
 
-import model.Drug;
-import model.Patient;
+import model.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -26,9 +25,10 @@ public class FileReader {
     }
 
     // EFFECTS: constructs a new reader, reads a list of patients from the stored location and returns it
-    public List<Patient> read() throws IOException {
+    public PatientsRecord read() throws IOException {
         String jsonData = readFile(location);
         JSONObject file = new JSONObject(jsonData);
+        EventLog.getInstance().logEvent(new Event("Loading previously saved file..."));
         return parseList(file);
     }
 
@@ -45,18 +45,19 @@ public class FileReader {
     }
 
     // EFFECTS: parses a list of patients from the file and return the list
-    public List<Patient> parseList(JSONObject rawFile) {
-        List<Patient> patients = new ArrayList<>();
+    public PatientsRecord parseList(JSONObject rawFile) {
+        PatientsRecord patients = new PatientsRecord();
         JSONArray patientsJson = rawFile.getJSONArray("patient");
         for (Object pj: patientsJson) {
             JSONObject nextPatient = (JSONObject) pj;
             addToPatientList(patients, nextPatient);
         }
+        EventLog.getInstance().logEvent(new Event("Successfully loaded previously saved file."));
         return patients;
     }
 
     // EFFECTS: parse a patient from its JSON representation and add it to the patients list
-    public void addToPatientList(List<Patient> patients, JSONObject rawPatient) {
+    public void addToPatientList(PatientsRecord patients, JSONObject rawPatient) {
         String name = rawPatient.getString("name");
         JSONObject rawBirthday = rawPatient.getJSONObject("birthday");
         int year = rawBirthday.getInt("year");

@@ -1,6 +1,7 @@
 package persistence;
 
 import model.Patient;
+import model.PatientsRecord;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -17,7 +18,7 @@ public class TestReader {
     void testReadNonExistentFile() {
         test = new FileReader("./data/noSuchFile.json");
         try {
-            List<Patient> patients = test.read();
+            PatientsRecord patients = test.read();
             fail("IOException expected");
         } catch (IOException e) {
             // pass
@@ -28,8 +29,8 @@ public class TestReader {
     void testReadEmptyPatientList() {
         test = new FileReader("./data/testReadEmptyPatientList.json");
         try {
-            List<Patient> patients = test.read();
-            assertEquals(0, patients.size());
+            PatientsRecord patients = test.read();
+            assertEquals(0, patients.getTotalPatientCount());
         } catch (IOException e) {
             fail("not supposed to catch IOException");
         }
@@ -39,12 +40,12 @@ public class TestReader {
     void testReadPatientListNoDrugs() {
         test = new FileReader("./data/testReadPatientListNoDrugs.json");
         try {
-            List<Patient> patients = test.read();
-            assertEquals(3, patients.size());
-            assertEquals("Harry", patients.get(0).getName());
-            assertEquals(LocalDate.of(1980,7,31), patients.get(0).getBirthday());
-            assertEquals(0, patients.get(0).getDrugs().size());
-            assertEquals("Hermione", patients.get(1).getName());
+            PatientsRecord patients = test.read();
+            assertEquals(3, patients.getTotalPatientCount());
+            assertEquals("Harry", patients.getPatientAtIndex(0).getName());
+            assertEquals(LocalDate.of(1980,7,31), patients.getPatientAtIndex(0).getBirthday());
+            assertEquals(0, patients.getPatientAtIndex(0).getDrugs().size());
+            assertEquals("Hermione", patients.getPatientAtIndex(1).getName());
         } catch (IOException e) {
             fail("not supposed to catch IOException");
         }
@@ -55,16 +56,16 @@ public class TestReader {
     void testReadPatientListWithDrugs() {
         test = new FileReader("./data/testReadPatientListDrugs.json");
         try {
-            List<Patient> patients = test.read();
-            assertEquals(3, patients.size());
-            assertEquals("Harry", patients.get(0).getName());
-            assertEquals(2, patients.get(0).getDrugs().size());
-            assertEquals("Hermione", patients.get(1).getName());
-            assertEquals(1, patients.get(1).getDrugs().size());
-            assertEquals("Ron", patients.get(2).getName());
-            assertEquals(1, patients.get(2).getDrugs().size());
-            assertEquals("Amortentia", patients.get(2).getDrugs().get(0).getName());
-            assertEquals("Gillyweed", patients.get(0).getDrugs().get(1).getName());
+            PatientsRecord patients = test.read();
+            assertEquals(3, patients.getTotalPatientCount());
+            assertEquals("Harry", patients.getPatientAtIndex(0).getName());
+            assertEquals(2, patients.getPatientAtIndex(0).getDrugs().size());
+            assertEquals("Hermione", patients.getPatientAtIndex(1).getName());
+            assertEquals(1, patients.getPatientAtIndex(1).getDrugs().size());
+            assertEquals("Ron", patients.getPatientAtIndex(2).getName());
+            assertEquals(1, patients.getPatientAtIndex(2).getDrugs().size());
+            assertEquals("Amortentia", patients.getPatientAtIndex(2).getDrugs().get(0).getName());
+            assertEquals("Gillyweed", patients.getPatientAtIndex(0).getDrugs().get(1).getName());
 
         } catch (IOException e) {
             fail("not supposed to catch IOException");

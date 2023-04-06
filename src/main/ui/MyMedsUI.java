@@ -2,19 +2,24 @@ package ui;
 
 
 import model.Drug;
+import model.Event;
+import model.EventLog;
 import model.Patient;
+import model.PatientsRecord;
 import persistence.FileReader;
 import persistence.FileWriter;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 // initiates the app
-public class MyMedsUI extends JFrame {
+public class MyMedsUI extends JFrame implements WindowListener {
 
     private static final int WIDTH = 1000;
     private static final int HEIGHT = 600;
@@ -26,15 +31,16 @@ public class MyMedsUI extends JFrame {
     private JLabel message;
     private FileReader reader;
     private FileWriter writer;
-    private List<Patient> patients;
+    private PatientsRecord patients;
     private Patient selectedPatient;
 
     // EFFECTS: CREATES NEW JFRAME AND INITIALIZES AN EMPTY PATIENT LIST
     public MyMedsUI() {
         super("My Meds");
-        patients = new ArrayList<>();
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        patients = new PatientsRecord();
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setMinimumSize(new Dimension(WIDTH, HEIGHT));
+        addWindowListener(this);
         runMyMeds();
     }
 
@@ -191,7 +197,54 @@ public class MyMedsUI extends JFrame {
         patientMenu.setVisible(false);
     }
 
+    // EFFECTS: SET AN EXCEPTION MESSAGE IF ANY
     public void setMessage(String message) {
         this.message.setText(message);
+    }
+
+    // EFFECTS: PRINTS ALL EVENTS IN EVENTLOG TO CONSOLE
+    private void printEventLog() {
+        for (Event e: EventLog.getInstance()) {
+            System.out.println(e.getDescription());
+        }
+    }
+
+
+    // EFFECTS: UPON CLOSING PRINT EVENTLOG AND CLEAR EVENTLOG
+    @Override
+    public void windowClosing(WindowEvent e) {
+        printEventLog();
+        EventLog.getInstance().clear();
+        System.exit(0);
+    }
+
+    // UNUSED WINDOWLISTENER METHODS, NO EFFECTS FOR ALL METHODS BELOW
+    @Override
+    public void windowOpened(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+
     }
 }
