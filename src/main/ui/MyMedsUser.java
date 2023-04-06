@@ -2,13 +2,13 @@ package ui;
 
 import model.Patient;
 import model.Drug;
+import model.PatientsRecord;
 import persistence.FileReader;
 import persistence.FileWriter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.DateTimeException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,13 +18,13 @@ public class MyMedsUser {
     private static String location = "./data/mymeds.json";
     private FileReader reader;
     private FileWriter writer;
-    private List<Patient> patients;
+    private PatientsRecord patients;
     private Patient selectedPatient;
     private Scanner input;
 
     // EFFECTS: generate a new user with a new patients list
     public MyMedsUser() {
-        patients = new ArrayList<>();
+        patients = new PatientsRecord();
         try {
             runMyMeds();
         } catch (DateTimeException d) {

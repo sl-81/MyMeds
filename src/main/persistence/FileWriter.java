@@ -1,6 +1,9 @@
 package persistence;
 
+import model.Event;
+import model.EventLog;
 import model.Patient;
+import model.PatientsRecord;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -29,7 +32,7 @@ public class FileWriter {
 
     // MODIFIES: this
     // EFFECTS: writes JSON representation of patient list to file
-    public void write(List<Patient> patients) {
+    public void write(PatientsRecord patients) {
         JSONObject finalFile = new JSONObject();
         JSONArray patientList = new JSONArray();
         for (Patient p: patients) {
@@ -37,6 +40,7 @@ public class FileWriter {
         }
         finalFile.put("patient", patientList);
         saveToFile(finalFile.toString(4));
+        EventLog.getInstance().logEvent(new Event("Saved file."));
     }
 
     // MODIFIES: this

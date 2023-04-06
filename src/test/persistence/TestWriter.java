@@ -2,6 +2,7 @@ package persistence;
 
 import model.Drug;
 import model.Patient;
+import model.PatientsRecord;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,13 +16,13 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class TestWriter {
     private FileWriter test;
-    private List<Patient> testPatients;
+    private PatientsRecord testPatients;
     private Patient h;
     private Patient r;
 
     @BeforeEach
     void setUp() {
-        testPatients = new ArrayList<>();
+        testPatients = new PatientsRecord();
         h = new Patient("Harry", 1980, 7, 31);
         r = new Patient("Ron", 1980, 3, 1);
         testPatients.add(h);
@@ -44,14 +45,14 @@ public class TestWriter {
     void testWriteEmptyPatientList() {
         try {
             test = new FileWriter("./data/testWriteEmptyPatientList.json");
-            testPatients = new ArrayList<>();
+            testPatients = new PatientsRecord();
             test.open();
             test.write(testPatients);
             test.close();
 
             FileReader testReader = new FileReader("./data/testWriteEmptyPatientList.json");
             testPatients = testReader.read();
-            assertEquals(0, testPatients.size());
+            assertEquals(0, testPatients.getTotalPatientCount());
 
         } catch (FileNotFoundException e) {
             fail("should not catch FileNotFoundException");
@@ -70,8 +71,8 @@ public class TestWriter {
 
             FileReader testReader = new FileReader("./data/testWritePatientList.json");
             testPatients = testReader.read();
-            assertEquals(2, testPatients.size());
-            assertEquals("Harry", testPatients.get(0).getName());
+            assertEquals(2, testPatients.getTotalPatientCount());
+            assertEquals("Harry", testPatients.getPatientAtIndex(0).getName());
 
         } catch (FileNotFoundException e) {
             fail("should not catch FileNotFoundException");
@@ -93,10 +94,10 @@ public class TestWriter {
 
             FileReader testReader = new FileReader("./data/testWritePatientListWithDrugs.json");
             testPatients = testReader.read();
-            assertEquals(2, testPatients.size());
-            assertEquals("Harry", testPatients.get(0).getName());
-            assertEquals(2, testPatients.get(0).getDrugs().size());
-            assertEquals(2, testPatients.get(0).getDrugs().size());
+            assertEquals(2, testPatients.getTotalPatientCount());
+            assertEquals("Harry", testPatients.getPatientAtIndex(0).getName());
+            assertEquals(2, testPatients.getPatientAtIndex(0).getDrugs().size());
+            assertEquals(2, testPatients.getPatientAtIndex(0).getDrugs().size());
 
         } catch (FileNotFoundException e) {
             fail("should not catch FileNotFoundException");
