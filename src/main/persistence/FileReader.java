@@ -28,7 +28,7 @@ public class FileReader {
     public PatientsRecord read() throws IOException {
         String jsonData = readFile(location);
         JSONObject file = new JSONObject(jsonData);
-        EventLog.getInstance().logEvent(new Event("Loaded previously saved file."));
+        EventLog.getInstance().logEvent(new Event("Loading previously saved file..."));
         return parseList(file);
     }
 
@@ -52,6 +52,7 @@ public class FileReader {
             JSONObject nextPatient = (JSONObject) pj;
             addToPatientList(patients, nextPatient);
         }
+        EventLog.getInstance().logEvent(new Event("Successfully loaded previously saved file."));
         return patients;
     }
 
