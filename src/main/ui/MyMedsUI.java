@@ -197,21 +197,20 @@ public class MyMedsUI extends JFrame implements WindowListener {
         patientMenu.setVisible(false);
     }
 
+    // EFFECTS: SET AN EXCEPTION MESSAGE IF ANY
     public void setMessage(String message) {
         this.message.setText(message);
     }
 
+    // EFFECTS: PRINTS ALL EVENTS IN EVENTLOG TO CONSOLE
     private void printEventLog() {
         for (Event e: EventLog.getInstance()) {
             System.out.println(e.getDescription());
         }
     }
 
-    @Override
-    public void windowOpened(WindowEvent e) {
 
-    }
-
+    // EFFECTS: UPON CLOSING PRINT EVENTLOG AND CLEAR EVENTLOG
     @Override
     public void windowClosing(WindowEvent e) {
         printEventLog();
@@ -219,6 +218,11 @@ public class MyMedsUI extends JFrame implements WindowListener {
         System.exit(0);
     }
 
+    // UNUSED WINDOWLISTENER METHODS, NO EFFECTS FOR ALL METHODS BELOW
+    @Override
+    public void windowOpened(WindowEvent e) {
+
+    }
 
     @Override
     public void windowClosed(WindowEvent e) {
