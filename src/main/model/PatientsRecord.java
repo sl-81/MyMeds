@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-// represents a list of patient that the app is currently recording
+// represents a list of patient that the app is currently keeping track of
 public class PatientsRecord implements Iterable<Patient> {
     private List<Patient> patients = new ArrayList<>();
 
