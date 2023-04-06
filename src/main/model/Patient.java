@@ -42,6 +42,7 @@ public class Patient {
         }
         if (!contains) {
             drugs.add(d);
+            EventLog.getInstance().logEvent(new Event (d.getName() + " is added to " + name +"'s file."));
         }
     }
 
@@ -54,7 +55,11 @@ public class Patient {
                 sameNameAsD = drug;
             }
         }
-        drugs.remove(sameNameAsD);
+        if (!(sameNameAsD == null)) {
+            drugs.remove(sameNameAsD);
+            EventLog.getInstance().logEvent(new Event (sameNameAsD.getName() +
+                    " is removed from " + name +"'s file."));
+        }
 
     }
 
