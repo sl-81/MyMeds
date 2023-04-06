@@ -2,11 +2,11 @@ package ui;
 
 import model.Patient;
 import model.PatientsRecord;
+import ui.button.BackToMain;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.List;
 
 // a panel that has a dropdown menu that displays all patient names currently in list and remove upon selection
 
@@ -19,6 +19,7 @@ public class PatientRemover extends SelectFromList {
             objectList.addItem(p.getName());
         }
         this.add(objectList);
+        this.add(new BackToMain(ui, "Back to main"));
         setMaximumSize(new Dimension(400, 100));
     }
 
