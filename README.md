@@ -39,4 +39,7 @@
 - Removed patient x from record.
 - Saved file.
 
-##Phase 4: Task 3:
+## Phase 4: Task 3:
+- Since Patient class only has one list of drugs, I can also make Patient implement Iterable<Drug> and directly loop through a patient.
+- I can also make use of the observer pattern and make patients and selectedPatient the subject and ui an observer, that way instead of calling runMyMeds() everytime I can just call ui.update() whenever an add/remove function happens in the subjects
+- The function runMyMeds() can be refactored into parts (initialize panel, set patientDirectory, set menu etc...) for ease of understanding.
