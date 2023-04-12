@@ -27,16 +27,25 @@
 - You can load your previously saved list by clicking on the "Load last saved data" button on the main page
 
 ## Phase 4: Task 2:
+- Tue Apr 11 20:36:37 PDT 2023
 - Added patient x to record.
-- advil is added to patient x's file.
+- Tue Apr 11 20:36:43 PDT 2023
 - Saved file.
+- Tue Apr 11 20:36:45 PDT 2023
 - Removed patient x from record.
+- Tue Apr 11 20:36:47 PDT 2023
 - Loading previously saved file...
-- advil is added to patient x's file.
+- Tue Apr 11 20:36:47 PDT 2023
 - Added patient x to record.
+- Tue Apr 11 20:36:47 PDT 2023
 - Successfully loaded previously saved file.
-- advil is removed from patient x's file.
+- Tue Apr 11 20:37:00 PDT 2023
+- drug x is added to patient x's file.
+- Tue Apr 11 20:37:09 PDT 2023
+- drug x is removed from patient x's file.
+- Tue Apr 11 20:37:13 PDT 2023
 - Removed patient x from record.
+- Tue Apr 11 20:37:15 PDT 2023
 - Saved file.
 
 ## Phase 4: Task 3:

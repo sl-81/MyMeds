@@ -205,7 +205,7 @@ public class MyMedsUI extends JFrame implements WindowListener {
     // EFFECTS: PRINTS ALL EVENTS IN EVENTLOG TO CONSOLE
     private void printEventLog() {
         for (Event e: EventLog.getInstance()) {
-            System.out.println(e.getDescription());
+            System.out.println(e.getDate() + "\n" + e.getDescription());
         }
     }
 
