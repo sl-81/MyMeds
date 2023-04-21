@@ -25,14 +25,17 @@ public class MyMedsUI extends JFrame implements WindowListener {
     private static final int HEIGHT = 600;
     private static String location = "./data/mymeds.json";
     private JPanel main;
+
+    private PatientsRecord patients;
     private MainMenu mainMenu;
     private PatientDirectory patientDirectory;
+
+    private Patient selectedPatient;
     private PatientMenu patientMenu;
     private JLabel message;
     private FileReader reader;
     private FileWriter writer;
-    private PatientsRecord patients;
-    private Patient selectedPatient;
+
 
     // EFFECTS: CREATES NEW JFRAME AND INITIALIZES AN EMPTY PATIENT LIST
     public MyMedsUI() {
@@ -61,6 +64,7 @@ public class MyMedsUI extends JFrame implements WindowListener {
         add(main);
         setVisible(true);
     }
+
 
     // EFFECTS: HIDE THE FRONTPAGE, DISPLAY FORM TO OBTAIN NEW PATIENT INFO FROM USER
     public void initializePatientGetter() {
@@ -247,4 +251,5 @@ public class MyMedsUI extends JFrame implements WindowListener {
     public void windowDeactivated(WindowEvent e) {
 
     }
+
 }
