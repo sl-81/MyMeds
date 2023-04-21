@@ -26,13 +26,20 @@ public class MyMedsUI extends JFrame implements WindowListener {
     private static String location = "./data/mymeds.json";
     private JPanel main;
 
+    // patients record ui
     private PatientsRecord patients;
     private MainMenu mainMenu;
     private PatientDirectory patientDirectory;
 
+    // selectedpatient ui
     private Patient selectedPatient;
     private PatientMenu patientMenu;
+
+    // exception handling
     private JLabel message;
+
+
+    // persistence handling
     private FileReader reader;
     private FileWriter writer;
 
