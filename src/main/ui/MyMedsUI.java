@@ -38,7 +38,6 @@ public class MyMedsUI extends JFrame implements WindowListener {
     // exception handling
     private JLabel message;
 
-
     // persistence handling
     private FileReader reader;
     private FileWriter writer;
